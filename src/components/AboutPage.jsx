@@ -10,16 +10,17 @@ export default function AboutPage() {
   // const {darkMode} = useOutletContext()
   // const [darkMode] = useContext(ThemeContext)
   const [darkMode] = useTheme()
-  const [screenSize] = useWindowSize()
+  // const [screenSize] = useWindowSize()
   return (
 <section className={`w-full ${darkMode? "darkModeActive": ""}`}>
       <div className={`w-full max-w-6xl p-4 m-auto min-h-[calc(100vh-100px)]`}>
       <p>About us</p>
-      <h3 className='my-2'>Window Width:{screenSize.width}px,&nbsp;&nbsp;Window Height:{screenSize.height}px</h3>
+      <p>I'am Sumanth having 4years of Experience in SEO industry and Passionate to work in Frontend web development</p>
+      <h3 className='my-2'>Understand lazy load on data import by clicking button</h3>
       <button className='bg-amber-500 px-4 py-2 rounded-xl bold cursor-pointer text-black' onClick={(e) => {
-        import('./Data').then((module) => {
-          setData(module.todos)
-        })
+        import('./Data')
+        .then((module) => setData(module.todos))
+        .catch((err) => console.error("Failed to load data",err))
       }}>Check Data</button>
       <ul>
         {

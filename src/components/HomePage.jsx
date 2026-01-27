@@ -30,14 +30,14 @@ export default function () {
 const [screenSize] = useWindowSize()
 
   return (
-    <section className={`w-full ${darkMode? "darkModeActive": ""}`}>
+    <section className={`w-full ${darkMode? "darkModeActive": ""} relative`}>
       <div className={`w-full max-w-6xl min-h-screen p-4 m-auto`}>
     <AutoType fixedTextContent={"Welcome! This single-page website is built using"} wordsArray={["HTML", "CSS", "JavaScript", "Tailwind CSS", "React.js"]} />
       <ImageComponent source={lazyLoadImage} meaning={"Lazy Loading Effect Image"}/>
-        <Counter>
+        {/* <Counter>
             Counter Function
-             </Counter>
-             <h3 className='text-xl my-4'>Window Size: {screenSize.width} X {screenSize.height}</h3>
+             </Counter> */}
+             <h3 className='text-sm my-4 fixed bottom-0 right-4 border border-amber-500 px-4 py-2 rounded-xl'>Window Size: {screenSize.width} X {screenSize.height}</h3>
              <ToastNotifications />
              <p className='mb-5'>Play <Link title='Click Here to Play TicTacToe Game' className='text-amber-500 hover:underline' to="/tic-tac-toe">TicTacToe Game</Link> here</p>
              <p className='mb-5'>Start the <Link title='Click here to Start the React Quiz' className='text-amber-500 hover:underline' to="/react-quiz">React Quiz</Link> here</p>
