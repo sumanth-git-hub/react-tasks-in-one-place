@@ -43,7 +43,7 @@ export default function CountryPage() {
           })).then((allBordersName) => {
             // console.log("Namasthe React")
               setCountryDetails((prevState) => ({...prevState, countryBorders: allBordersName}))
-              console.log(allBordersName)
+              // console.log(allBordersName)
             })
      }
 }
@@ -59,7 +59,7 @@ export default function CountryPage() {
         fetch(`https://restcountries.com/v3.1/name/${fetchCountry}?fullText=true`)
         .then((res) => res.json())
         .then(([findData]) => {
-          console.log(findData)
+          // console.log(findData)
           useMainData(findData)
           //made the below written code as a function for reuse 
           /*
@@ -96,12 +96,12 @@ export default function CountryPage() {
           // console.log(countryDetails.countryName)
         }).catch((displayError) => {
             setCountryNotFound(true)
-            console.log(displayError)
+            // console.log(displayError)
           })
       }, [fetchCountry])
-console.log(countryNotFound)
+// console.log(countryNotFound)
 
-console.log(countryDetails?.countryBorders)
+// console.log(countryDetails?.countryBorders)
 
       if(countryNotFound === true){
         return <ErrorPage />

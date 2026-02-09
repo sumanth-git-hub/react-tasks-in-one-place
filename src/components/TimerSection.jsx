@@ -55,14 +55,14 @@ const TimerSection = () => {
   const setSeconds = String(Math.floor(stopTime % 60)).padStart(2, "0");
 
   const startWatchTimer = () => {
-    console.log(startWatch);
+    // console.log(startWatch);
     setStartWatch(true);
     setPauseWatch(false);
     setIsRotate(false);
   };
 
   const pauseWatchTimer = () => {
-    console.log(pauseWatch);
+    // console.log(pauseWatch);
     setPauseWatch(!pauseWatch);
   };
 
@@ -71,7 +71,7 @@ const TimerSection = () => {
     setStopTime(0);
     setStartWatch(false);
     setPauseWatch(false);
-    console.log(resetIcon.current);
+    // console.log(resetIcon.current);
     setIsRotate(true);
     // resetIcon.current.style.transform = "rotate(360deg) transition 2s ease"
   };
@@ -79,7 +79,7 @@ const TimerSection = () => {
     if (startWatch && !pauseWatch) {
       resetIntervalElement.current = setInterval(() => {
         setStopTime(stopTime + 1);
-        console.log(stopTime);
+        // console.log(stopTime);
       }, 1000);
     } else if (resetWatchTimer) {
       clearInterval(resetIntervalElement.current);
@@ -129,14 +129,14 @@ const TimerSection = () => {
             Clock and Calender in&nbsp;
             <span className="text-sky-300">React</span>
           </h2>
-          <div className="flex justify-center gap-6 items-baseline-last">
+          <div className="flex flex-col justify-center items-center gap-6 md:items-baseline-last md:flex-row">
             <div className="weekAndYear bg-red-900 p-4 rounded">
               <p className="text-6xl text-center">
                 {timeAndDate.getDate() < 10
                   ? "0" + timeAndDate.getDate()
                   : timeAndDate.getDate()}
               </p>
-              <div className="self-baseline-last">
+              <div className="self-center md:self-baseline-last">
               <span className="text-2xl text-amber-500">{monthsArray[timeAndDate.getMonth()]}</span> {" "}
               <span className="text-2xl text-sky-300">{timeAndDate.getFullYear()}</span>
               </div>
@@ -162,7 +162,7 @@ const TimerSection = () => {
               ref={inputElement}
               onChange={(e) => {
                 setTimer(parseInt(e.target.value * 60));
-                console.log(timer);
+                // console.log(timer);
               }}
               type="number"
               placeholder="Enter the Minutes"

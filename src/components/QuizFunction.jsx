@@ -11,14 +11,14 @@ const QuizFunction = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(false);
   const [score, setScore] = useState(0);
   const [progressWidth, setProgressWidth] = useState(0);
-  console.log("progressWidth",progressWidth);
+  // console.log("progressWidth",progressWidth);
 
   function handleAnswer(option) {
     // console.log(option);
     setSelectedAnswer(option);
   }
 
-  console.log(score/questionsData.length * 100)
+  // console.log(score/questionsData.length * 100)
 
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
@@ -106,7 +106,7 @@ const QuizFunction = () => {
                             setScore(score + 1);
                             setProgressWidth(score/questionsData.length * 100 + 20);
                           }
-                          console.log(score);
+                          // console.log(score);
                         }
                       }}
                       className={`${

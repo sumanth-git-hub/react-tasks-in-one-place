@@ -11,7 +11,7 @@ export default function ExpenseTable({expenses, setExpense, setInputValues, setE
 
 const totalCount = filterResult.reduce((accumulator, current) => accumulator + parseFloat(current.amount),0)
 
-console.log(totalCount)
+// console.log(totalCount)
   // const filterData = expenses.filter((expense) => {
   //   return expense.category.toLowerCase().includes(userQuery)
   // })

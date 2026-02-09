@@ -15,6 +15,11 @@ import ExpenseTracker from "./components/ExpenseTracker.jsx";
 import QuizFunction from "./components/QuizFunction.jsx";
 import CharacterCounter from "./components/CharacterCounter.jsx";
 import ToDoList from "./components/ToDoList.jsx";
+// import ToastNotifications from "./components/ToastNotifications.jsx";
+// import InfiniteScrollComponent from "./components/infiniteScroll/infiniteScrollComponent.jsx";
+// import ImageCardCarousel from "./components/carouselSlider/ImageCardCarousel.jsx";
+// import BusinessInsurance from "./components/multiStepForm/BusinessInsurance.jsx";
+// import AutoCompleteSearchBar from "./components/autocompleteSearch/AutoCompleteSearchBar.jsx";
 // import StockFreeImages from "./components/StockFreeImages.jsx";
 // import TimerSection from "./components/TimerSection.jsx";
 // import Pagination from "./components/Pagination.jsx";
@@ -25,6 +30,11 @@ const StockFreeImages = lazy(() => import("./components/StockFreeImages.jsx"))
 const TimerSection = lazy(() => import("./components/TimerSection.jsx"))
 const Pagination = lazy(() => import("./components/Pagination.jsx"))
 const TicTacToe = lazy(() => import("./components/TicTacToe.jsx"));
+const AutoCompleteSearchBar = lazy(() => import('./components/autocompleteSearch/AutoCompleteSearchBar.jsx'))
+const BusinessInsurance = lazy(() => import('./components/multiStepForm/BusinessInsurance.jsx'))
+const ImageCardCarousel = lazy(() => import('./components/carouselSlider/ImageCardCarousel.jsx'))
+const InfiniteScrollComponent = lazy(() => import('./components/infiniteScroll/InfiniteScrollComponent.jsx'))
+const ToastNotifications = lazy(() => import('./components/ToastNotifications.jsx'))
 const AboutPage = lazy(() => waitForResponse(1000).then(() => import('./components/AboutPage.jsx')))
 const ContactPage = lazy(() => waitForResponse(1000).then(() => import('./components/ContactPage.jsx')))
 const router = createBrowserRouter([
@@ -74,7 +84,7 @@ const router = createBrowserRouter([
         element: <Pagination />
       },
       {
-        path: 'timer-section',
+        path: '/timer-section',
         element: <TimerSection />
       },
       {
@@ -88,6 +98,26 @@ const router = createBrowserRouter([
       {
         path: '/to-do-list',
         element: <ToDoList />
+      },
+      {
+        path: '/auto-complete-search',
+        element: <AutoCompleteSearchBar />
+      },
+      {
+        path: '/multi-step-form',
+        element: <BusinessInsurance />
+      },
+      {
+        path: '/image-carousel',
+        element: <ImageCardCarousel />
+      },
+      {
+        path: '/infinite-scroll',
+        element: <InfiniteScrollComponent />
+      },
+      {
+        path: '/toast-notifications',
+        element: <ToastNotifications />
       }
     ],
   },

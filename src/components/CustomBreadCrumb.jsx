@@ -11,7 +11,7 @@ const CustomBreadCrumb = ({ item = [] }) => {
     <div className={`customBreadCrumbWrap pt-15 w-full ${darkMode ? "darkModeActive bg-black" : "bg-white"}`}>
       <Breadcrumb>
         {item.map((getItem, index) => {
-          console.log(item.length);
+          // console.log(item.length);
           return (
             <BreadcrumbItem key={index}>
               {index === item?.length - 1 ? (

@@ -48,7 +48,7 @@ export default function ExpenseForm({ setExpense, inputValues, setInputValues,el
       {pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ ,message: "Please enter a valid email address"}
     ]
   }
-console.log(inputConditions)
+// console.log(inputConditions)
 
 function inputValidation(inputData) {
   const errorObject = {};
@@ -57,7 +57,7 @@ function inputValidation(inputData) {
 Object.entries(inputData).forEach(([key, value]) => {
   // console.log(key, value)
   inputConditions[key].some((rule) => {
-    console.log(rule)
+    // console.log(rule)
 
     if(rule.required && !value){
       errorObject[key] = rule.message
@@ -112,7 +112,7 @@ setInputError(errorObject)
     e.preventDefault();
 
     const validateInputValues = inputValidation(inputValues);
-    console.log(Object.keys(validateInputValues).length);
+    // console.log(Object.keys(validateInputValues).length);
 
     // if(Object.keys(validateInputValues).length) return
 
@@ -180,7 +180,7 @@ setInputError(errorObject)
   // }
 
   function newInputValue(e) {
-    console.log(`Name: ${e.target.name} value: ${e.target.value}`);
+    // console.log(`Name: ${e.target.name} value: ${e.target.value}`);
     const { name, value } = e.target;
     // const KeyValuePairs = {}
     // KeyValuePairs[name] = value

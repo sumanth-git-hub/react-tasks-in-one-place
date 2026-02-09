@@ -15,7 +15,7 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
       const [isBarIcon, setIsBarIcon] = useState(false)
 
        const FindPathName = useLocation()
-    console.log(FindPathName.pathname)
+    // console.log(FindPathName.pathname)
 
     let pageName = ""
 
@@ -91,7 +91,7 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
                   Contact
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
@@ -114,7 +114,7 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
                 >
                   E Tracker
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <button onClick={() => isOpenModal("HeaderComponent")}>
                   Sing-In
@@ -176,7 +176,7 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
                   Contact
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   className={({ isActive }) =>
                     isActive
@@ -199,16 +199,16 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
                 >
                   E Tracker
                 </NavLink>
-              </li>
+              </li> */}
               <li>
-                <button onClick={() => isOpenModal("HeaderComponent")}>
+                <button className="cursor-pointer" onClick={() => isOpenModal("HeaderComponent")}>
                   Sing-In
                 </button>
                 <Modal
                   openModal={openModal === "HeaderComponent"}
                   isOpenModal={() => isOpenModal(null)}
                   passHeading={signAction}
-                  bottomLine={`Thanks for Choosing us!`}
+                  bottomLine={`Thank You!`}
                   Children={
                       <SignUpForm signAction={signAction} setSignAction={setSignAction} />
                   }

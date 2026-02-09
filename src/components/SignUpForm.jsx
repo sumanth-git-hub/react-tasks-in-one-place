@@ -1,9 +1,18 @@
 import React, { useState } from "react";
+import OtpInputComponent from "./otpElements/OtpInputComponent";
 
 const SignUpForm = ({signAction, setSignAction}) => {
 
     const [viewPassword, setViewPassword] = useState("password")
+    const [checkInfo, setCheckInfo] = useState(false)
+    const [userMail, setUserMail] = useState("")
 
+  const emailValidation = () => {
+    if(/^\S+@\S+\.\S+$/.test(userMail)){
+      return userMail
+    }
+    return
+  }
 
   return (
     <div className="py-4 text-sm ">
@@ -22,7 +31,7 @@ const SignUpForm = ({signAction, setSignAction}) => {
         />
       </div>
         }
-      <div className="flex my-2 gap-2 py-2 px-4 items-center applyShadow rounded-xl">
+      <div className="flex my-2 gap-2 py-2 px-4 items-center applyShadow rounded-xl relative">
         <div className="md:w-1/5 w-1/2">
           <label className="mr-2">
             Email Id
@@ -33,8 +42,32 @@ const SignUpForm = ({signAction, setSignAction}) => {
           className="w-full rounded p-2 outline-0"
           type="email"
           placeholder="Enter Email ID"
+          value={userMail}
+          onChange={(e) => {
+            emailValidation()
+            setUserMail(e.target.value)}
+          }
         />
+        {
+          signAction === "Sign Up" && <button onClick={() => {
+          setCheckInfo(true)
+          // ${checkInfo ? 'bg-gray-400' : 'bg-amber-400 cursor-pointer'}
+        }} className={`py-2 px-4 rounded-xl font-medium md:absolute md:right-2 bg-amber-500 cursor-pointer`} disabled = {!emailValidation()} >Get&nbsp;OTP</button>
+        }
+       
       </div>
+      { checkInfo && signAction === "Sign Up"  &&  <p className="text-sm text-green-700">Please check the OTP in your inbox of the above entered email address</p>}
+      {
+       checkInfo && signAction === "Sign Up"  &&     <div className="flex my-2 gap-2 py-2 px-4 items-center applyShadow rounded-xl">
+        <div className="md:w-1/5 w-1/3">
+          <label className="mr-2" htmlFor="enter-otp">
+            Enter OTP
+          </label>
+          <i className="fa-solid fa-mobile-screen"></i>
+        </div>
+        <OtpInputComponent />
+      </div>
+      }
       <div className="flex my-2 gap-2 py-2 px-4 items-center applyShadow rounded-xl relative">
         <div className="md:w-1/6 w-1/2">
           <label className="mr-2">
@@ -47,7 +80,7 @@ const SignUpForm = ({signAction, setSignAction}) => {
           type={`${viewPassword}`}
           placeholder="Enter Password"
         />
-        <i title={`${viewPassword === "password"? 'View Password' : 'Hide Password'}`} className={`fa-solid ${viewPassword === "password"? 'fa-eye' : 'fa-eye-slash'}  absolute right-5 cursor-pointer`} onClick={() => {
+        <i title={`${viewPassword === "password"? 'Hide Password' : 'View Password'}`} className={`fa-solid ${viewPassword === "password"? 'fa-eye-slash' : 'fa-eye'}  absolute right-5 cursor-pointer`} onClick={() => {
             setViewPassword((prevState) => prevState === "password" ? "text" : 'password')
         }}></i>
       </div>
