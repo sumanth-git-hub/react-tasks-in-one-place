@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import {
   closestCorners,
