@@ -24,7 +24,7 @@ const [darkMode] = useTheme()
               <img className='object-cover w-full rounded-xl' src={contactMeImage} alt={"contact-section-image"} />
             </div>
           <address className='change-font-style'>
-            <p className='mb-1'><i className="fa-solid fa-file-arrow-down text-amber-500"></i>&nbsp;Resume: <a className='underline decoration-1 decoration-dotted hover:text-amber-500 decoration-amber-500' href="https://drive.google.com/file/d/16XsYjvsmK6X0jIxGow0sqa-EYqmAl0RW/view" target='_blank'>Download CV</a></p>
+            <p className='mb-1'><i className="fa-solid fa-file-arrow-down text-amber-500"></i>&nbsp;Resume: <a className='underline decoration-1 decoration-dotted hover:text-amber-500 decoration-amber-500' href="/src/assets/sumanth-s-s-updated-resume-2026.pdf" target='_blank'>Download CV</a></p>
             <p className='mb-1'><i className="fa-solid fa-envelope text-[#EA4335]"></i>&nbsp;Email: <a className='underline decoration-1 decoration-dotted hover:text-amber-500 decoration-amber-500' href="mailto:sumanthss025@gmail.com">sumanthss025@gmail.com</a></p>
             <p className='mb-1'><i className="fa-solid fa-phone text-green-700"></i>&nbsp;Phone Number: <a className='underline decoration-1 decoration-dotted decoration-amber-500 hover:text-amber-500' href="tel:8197470643">8197470643</a></p>
             <p className='mb-1'><i className="fa-brands fa-whatsapp text-[#54EC6F]"></i>&nbsp;WhatsApp: <a className='underline decoration-1 decoration-dotted hover:text-amber-500 decoration-amber-500' href="https://api.whatsapp.com/send?l=en&text=Hello&phone=8197470643" target='_blank'>Please Drop a Message!</a></p>
