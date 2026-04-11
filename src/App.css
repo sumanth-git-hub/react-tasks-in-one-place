@@ -2,7 +2,7 @@
   font-family: 'Poppins', 'Courier New', Courier, monospace;
 }
 .image-size {
-  max-width: 32px;
+  max-width: 36px;
 }
 header.darkModeActive{
   background: #000;
@@ -200,6 +200,16 @@ header.darkModeActive{
     margin-top: 16px;
     display: grid;
 }
+/* .countries-card-container {
+    margin-inline: auto;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 64px;
+    max-width: 1200px;
+    margin-top: 16px;
+    display: grid;
+} */
+ 
 @media (max-width: 468px) {
   .boxes {
     height: 100px;

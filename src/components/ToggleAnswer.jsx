@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { Children, useState } from 'react'
 import { useTheme } from '../hooks/UseTheme'
 
-export default function ToggleAnswer({passQuestion, passAnswer}) {
+export default function ToggleAnswer({passQuestion, passAnswer, children}) {
 
     const [accordion, isOpenAccordion] = useState(false)
 
@@ -17,6 +17,7 @@ export default function ToggleAnswer({passQuestion, passAnswer}) {
             accordion ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
           }`}>
               <p className={`text-sm`}>{passAnswer}</p>
+              {children}
             </div>
         </div>
   )

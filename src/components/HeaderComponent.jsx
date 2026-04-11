@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
-import reactLogo from "../assets/react.svg";
+// import reactLogo from "../assets/react.svg";
+import reactLogo from "../assets/portfolio-logo.png";
+
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Modal from "./Modal";

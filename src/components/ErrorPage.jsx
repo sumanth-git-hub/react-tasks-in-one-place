@@ -13,7 +13,7 @@ const [openModal, isOpenModal] = useState(null)
 
   return (
     <div className={`pt-15 ${darkMode ? "bg-black text-white": ""}`}>
-      <HeaderComponent  openModal={openModal} isOpenModal={isOpenModal}/>
+      {/* <HeaderComponent  openModal={openModal} isOpenModal={isOpenModal}/> */}
     <div className={`w-full max-w-6xl p-4 m-auto min-h-screen text-center ${darkMode ? "darkModeActive": ""}`}>
         {/* <p>oho the page is {findError.status} {findError.statusText}</p> */}
        <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>

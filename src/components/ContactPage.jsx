@@ -31,7 +31,7 @@ const [darkMode] = useTheme()
             <p className='mb-1'><i className="fa-solid fa-location-dot text-[#C72801]"></i>&nbsp;Location: Koramangala, Bangalore</p>
             <p className='mb-1'><i className="fa-brands fa-github"></i>&nbsp;GitHub: <a className='underline decoration-1 decoration-dotted hover:text-amber-500 decoration-amber-500' href="https://github.com/sumanth-git-hub" target='_blank'>Check My GitHub Profile</a></p>
             <p className='mb-1'><i className="fa-brands fa-linkedin text-[#0B63BD]"></i>&nbsp;LinkedIn: <a className='underline decoration-1 decoration-dotted hover:text-amber-500 decoration-amber-500' href="https://www.linkedin.com/in/sumanth-s-s/" target='_blank'>View My LinkedIn Profile</a></p>
-            <p className='mt-1'><i className="fa-solid fa-clock text-amber-500"></i>&nbsp;Response time: Within 10 Minutes</p>
+            <p className='mt-1'><i className="fa-solid fa-clock text-amber-500"></i>&nbsp;Response time: Expect in few hours</p>
           </address>
           </section>
         </div>

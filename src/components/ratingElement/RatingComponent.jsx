@@ -21,11 +21,11 @@ const RatingComponent = () => {
                  onMouseLeave={() => {
                     setHoverValue(0)
                 }}
-                className={`inline-block mx-1 cursor-pointer text-xl ${ (index < clickValue && hoverValue === 0) || index < hoverValue ? 'text-amber-500': ""}`}  key={index}>{item}</span>
+                className={`inline-block mx-1 cursor-pointer text-xl ${ (index < clickValue && hoverValue === 0) || index < hoverValue ? 'text-amber-400': ""}`}  key={index}>{item}</span>
             })
         }
         {
-          thanksMsg &&  <p>Thank you for Giving us a {clickValue} out of {starCounts} Rating <i className="fa-solid fa-handshake text-amber-500"></i></p>
+          thanksMsg &&  <p>Thank you for Giving us a {clickValue} out of {starCounts} Rating <i className="fa-solid fa-handshake text-amber-400"></i></p>
         }
     </div>
   )

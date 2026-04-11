@@ -15,6 +15,7 @@ import ExpenseTracker from "./components/ExpenseTracker.jsx";
 import QuizFunction from "./components/QuizFunction.jsx";
 import CharacterCounter from "./components/CharacterCounter.jsx";
 import ToDoList from "./components/ToDoList.jsx";
+// import ProjectsList from "./pages/ProjectsList.jsx";
 // import ToastNotifications from "./components/ToastNotifications.jsx";
 // import InfiniteScrollComponent from "./components/infiniteScroll/infiniteScrollComponent.jsx";
 // import ImageCardCarousel from "./components/carouselSlider/ImageCardCarousel.jsx";
@@ -26,17 +27,32 @@ import ToDoList from "./components/ToDoList.jsx";
 // import TicTacToe from "./components/TicTacToe.jsx";
 
 // const TicTacToe = lazy(() => import('./components/TicTacToe.jsx'))
-const StockFreeImages = lazy(() => import("./components/StockFreeImages.jsx"))
-const TimerSection = lazy(() => import("./components/TimerSection.jsx"))
-const Pagination = lazy(() => import("./components/Pagination.jsx"))
+const StockFreeImages = lazy(() => import("./components/StockFreeImages.jsx"));
+const TimerSection = lazy(() => import("./components/TimerSection.jsx"));
+const Pagination = lazy(() => import("./components/Pagination.jsx"));
 const TicTacToe = lazy(() => import("./components/TicTacToe.jsx"));
-const AutoCompleteSearchBar = lazy(() => import('./components/autocompleteSearch/AutoCompleteSearchBar.jsx'))
-const BusinessInsurance = lazy(() => import('./components/multiStepForm/BusinessInsurance.jsx'))
-const ImageCardCarousel = lazy(() => import('./components/carouselSlider/ImageCardCarousel.jsx'))
-const InfiniteScrollComponent = lazy(() => import('./components/infiniteScroll/InfiniteScrollComponent.jsx'))
-const ToastNotifications = lazy(() => import('./components/ToastNotifications.jsx'))
-const AboutPage = lazy(() => waitForResponse(1000).then(() => import('./components/AboutPage.jsx')))
-const ContactPage = lazy(() => waitForResponse(1000).then(() => import('./components/ContactPage.jsx')))
+const ProjectsList = lazy(() => import("./pages/ProjectsList.jsx"));
+const AutoCompleteSearchBar = lazy(
+  () => import("./components/autocompleteSearch/AutoCompleteSearchBar.jsx"),
+);
+const BusinessInsurance = lazy(
+  () => import("./components/multiStepForm/BusinessInsurance.jsx"),
+);
+const ImageCardCarousel = lazy(
+  () => import("./components/carouselSlider/ImageCardCarousel.jsx"),
+);
+const InfiniteScrollComponent = lazy(
+  () => import("./components/infiniteScroll/InfiniteScrollComponent.jsx"),
+);
+const ToastNotifications = lazy(
+  () => import("./components/ToastNotifications.jsx"),
+);
+const AboutPage = lazy(() =>
+  waitForResponse(1000).then(() => import("./components/AboutPage.jsx")),
+);
+const ContactPage = lazy(() =>
+  waitForResponse(1000).then(() => import("./components/ContactPage.jsx")),
+);
 const router = createBrowserRouter([
   {
     path: "/",
@@ -50,75 +66,79 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: (
-          <Suspense fallback={<FallbackComponent/>}>
+          <Suspense fallback={<FallbackComponent />}>
             <AboutPage />
           </Suspense>
         ),
       },
       {
         path: "/contact",
-        element: <ContactPage />
+        element: <ContactPage />,
       },
       {
-        path: '/countries',
-        element: <Countries />
+        path: "/countries",
+        element: <Countries />,
       },
       {
-        path: '/:country',
-        element: <CountryPage />
+        path: "/:country",
+        element: <CountryPage />,
       },
       {
-        path: '/expense-tracker',
-        element: <ExpenseTracker />
+        path: "/expense-tracker",
+        element: <ExpenseTracker />,
       },
       {
-        path: '/tic-tac-toe',
-        element: <TicTacToe />
+        path: "/tic-tac-toe",
+        element: <TicTacToe />,
       },
       {
-        path: '/react-quiz',
-        element: <QuizFunction />
+        path: "/react-quiz",
+        element: <QuizFunction />,
       },
       {
-        path: '/pagination',
-        element: <Pagination />
+        path: "/pagination",
+        element: <Pagination />,
       },
       {
-        path: '/timer-section',
-        element: <TimerSection />
+        path: "/timer-section",
+        element: <TimerSection />,
       },
       {
-        path: '/character-counter',
-        element: <CharacterCounter />
+        path: "/character-counter",
+        element: <CharacterCounter />,
       },
       {
-        path: '/stock-free-images',
-        element: <StockFreeImages />
+        path: "/stock-free-images",
+        element: <StockFreeImages />,
       },
       {
-        path: '/to-do-list',
-        element: <ToDoList />
+        path: "/to-do-list",
+        element: <ToDoList />,
       },
       {
-        path: '/auto-complete-search',
-        element: <AutoCompleteSearchBar />
+        path: "/auto-complete-search",
+        element: <AutoCompleteSearchBar />,
       },
       {
-        path: '/multi-step-form',
-        element: <BusinessInsurance />
+        path: "/multi-step-form",
+        element: <BusinessInsurance />,
       },
       {
-        path: '/image-carousel',
-        element: <ImageCardCarousel />
+        path: "/image-carousel",
+        element: <ImageCardCarousel />,
       },
       {
-        path: '/infinite-scroll',
-        element: <InfiniteScrollComponent />
+        path: "/infinite-scroll",
+        element: <InfiniteScrollComponent />,
       },
       {
-        path: '/toast-notifications',
-        element: <ToastNotifications />
-      }
+        path: "/toast-notifications",
+        element: <ToastNotifications />,
+      },
+      {
+        path: "/list-of-projects",
+        element: <ProjectsList />,
+      },
     ],
   },
 ]);
@@ -126,13 +146,13 @@ const router = createBrowserRouter([
 const waitForResponse = (passTime) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve()
-    }, passTime)
-  })
-}
+      resolve();
+    }, passTime);
+  });
+};
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-      <RouterProvider router={router} />
-  </StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
 );

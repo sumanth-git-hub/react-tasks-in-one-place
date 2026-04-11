@@ -56,7 +56,7 @@ useEffect(() => {
         <div className='flex flex-col gap-3 justify-center items-center cursor-all-scroll'>
           {
             imageData.map((item, index) => {
-              return <img className='w-1/4 h-80 object-cover rounded-lg image-element' key={index} src={item.download_url} alt={item.author} />
+              return <img className='md:w-1/4 h-80 object-cover rounded-lg image-element' key={index} src={item.download_url} alt={item.author} />
             })
           }
         </div>
