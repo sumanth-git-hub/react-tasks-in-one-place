@@ -43,6 +43,7 @@ const CharacterCounter = () => {
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
       <div className={`w-full max-w-6xl min-h-[calc(100vh-100px)] p-4 m-auto`}>
+        <h2 className="my-2 text-center text-2xl font-bold">Online Character Count Tool in <span className="text-sky-400">React</span></h2>
         <textarea
           onChange={(e) => {
             countCharacters(e.target.value);

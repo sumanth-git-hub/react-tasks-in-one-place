@@ -50,6 +50,7 @@ const StockFreeImages = () => {
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
       <div className={`w-full max-w-6xl min-h-[calc(100vh-100px)] p-4 m-auto`}>
+        <h2 className="my-4 text-center text-2xl font-bold">Find Stock Free Image using API in <span className="text-sky-400">React</span></h2>
         <form className="relative w-full">
           <input
             ref={inputRefElement}

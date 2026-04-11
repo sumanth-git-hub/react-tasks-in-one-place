@@ -23,6 +23,7 @@ export default function Countries() {
   // console.log(countryData)
   return countryData === null ? (
     <FallbackComponent />
+    // <CountriesListShimmer />
   ) : (
     <section
       className={`w-full min-h-[calc(100vh-100px)] ${
@@ -36,7 +37,7 @@ export default function Countries() {
           setQuery={setQuery}
           placeholderContent={"Find All of the Countries"}
         />
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-8 countries-card-container">
           {countryData
             .filter(
               (passCountryDetails) =>

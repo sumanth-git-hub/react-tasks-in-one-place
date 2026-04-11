@@ -24,7 +24,7 @@ function TicTacToe() {
     const boxArray = [box0,box1,box2,box3, box4,box5,box6,box7,box8]
 
     const toggleFunction = (element,number) => {
-        console.log(number)
+        // console.log(number)
             if(lock) {
                 return 0;
             }
@@ -42,7 +42,7 @@ function TicTacToe() {
 
     function checkWin() {
           if(storeElement[0] === storeElement[1] && storeElement[1] === storeElement[2] && storeElement[2] !== ""){
-              console.log("You Won")
+              // console.log("You Won")
               won(storeElement[2])
           }
           else if (storeElement[3] === storeElement[4] && storeElement[4] === storeElement[5] && storeElement[5] !== ""){
@@ -79,7 +79,7 @@ function TicTacToe() {
     }
 
     function resetFun() {
-      console.log("reset")
+      // console.log("reset")
       setLock(false)
       storeElement = ["","","","","","","","",""]
       boxArray.map((box) => box.current.innerHTML = "")
