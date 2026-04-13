@@ -4,6 +4,7 @@ import { ThemeContext } from "../Context/ThemeContext";
 import useWindowSize from "../hooks/useWindowSize";
 import { useTheme } from "../hooks/useTheme";
 import TwoSection from "./reuseComponents/TwoSection";
+import getImage from "../assets/sumanth-profile-picture.png"
 // import {todos} from "../components/Data"
 
 export default function AboutPage() {
@@ -12,8 +13,6 @@ export default function AboutPage() {
   // const [darkMode] = useContext(ThemeContext)
   const [darkMode] = useTheme();
   // const [screenSize] = useWindowSize()
-  const getImage = `src/assets/sumanth-profile-picture.png`;
-
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
       <div className={`w-full max-w-6xl p-4 m-auto min-h-[calc(100vh-100px)]`}>

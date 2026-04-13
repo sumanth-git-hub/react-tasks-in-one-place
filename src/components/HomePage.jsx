@@ -54,19 +54,19 @@ I build scalable and high-performance web applications with a strong focus on cl
           >
             {
               <p className="text-sm mt-2">
-                <a
+                <Link
                   className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black  inline-block text-center"
-                  href="/about"
+                  to="/about"
                 >
                   About Me
-                </a>
+                </Link>
                 &nbsp;
-                <a
+                <Link
                   className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black inline-block text-center"
-                  href="/contact"
+                  to="/contact"
                 >
                   Get In Touch
-                </a>
+                </Link>
               </p>
             }
           </ToggleAnswer>
@@ -98,13 +98,13 @@ I build scalable and high-performance web applications with a strong focus on cl
             })
           }
         </section>
-        <a
+        <Link
           className="mx-2 my-4 py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black inline-block text-center"
-          href="/list-of-projects"
+          to="/list-of-projects"
         >
           View more Projects&nbsp;
           <i className="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
+        </Link>
         <p className="text-sm my-4 fixed bottom-0 z-10 right-4 border border-amber-500 p-2 rounded-xl">
           Window Size: {screenSize.width} X {screenSize.height}
         </p>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import Modal from "./Modal";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { ThemeContext } from "../Context/ThemeContext";
 import { useTheme } from "../hooks/useTheme";
 import contactMeImage from "../assets/contact-me.png";
@@ -35,13 +35,13 @@ export default function ContactPage() {
               <p className="mb-1">
                 <i className="fa-solid fa-file-arrow-down text-amber-500"></i>
                 &nbsp;Resume:{" "}
-                <a
+                <Link
                   className="underline decoration-1 decoration-dotted hover:text-amber-500 decoration-amber-500"
-                  href="/src/assets/sumanth-s-s-updated-resume-2026.pdf"
+                  to="/src/assets/sumanth-s-s-updated-resume-2026.pdf"
                   target="_blank"
                 >
                   Download CV
-                </a>
+                </Link>
               </p>
               <p className="mb-1">
                 <i className="fa-solid fa-envelope text-[#EA4335]"></i>
