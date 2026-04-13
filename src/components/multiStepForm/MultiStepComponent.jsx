@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TermModal from "./termModal";
+import TermModal from "./TermModal";
 // import Steps from "./Steps";
 
 const MultiStepComponent = ({

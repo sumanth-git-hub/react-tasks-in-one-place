@@ -5,8 +5,8 @@ import CompanyInfo from "./CompanyInfo";
 import IndustryInfo from "./IndustryInfo";
 import UserInfo from "./UserInfo";
 import StepperComponent from "./StepperComponent";
-import TermModal from "./termModal";
-import ThanksModal from "./thanksModal";
+import TermModal from "./TermModal";
+import ThanksModal from "./ThanksModal";
 import AccordionCom from "./AccordionCom";
 
 const BusinessInsurance = () => {
