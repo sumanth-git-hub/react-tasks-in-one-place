@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import lazyLoadImage from "../../assets/react-lazy-load-image.png";
 import { useTheme } from "../../hooks/useTheme";
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 export const CardsComponent = ({
   projectName,
