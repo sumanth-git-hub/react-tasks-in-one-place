@@ -40,12 +40,12 @@ export const CardsComponent = ({
             </a>
           </p>
         )}
-        <a
+        <Link
           className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black w-full block text-center"
-          href={urlSlug}
+          to={urlSlug}
         >
           View Project
-        </a>
+        </Link>
       </div>
     </div>
   );

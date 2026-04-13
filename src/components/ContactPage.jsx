@@ -5,6 +5,7 @@ import { Link, useOutletContext } from "react-router-dom";
 import { ThemeContext } from "../Context/ThemeContext";
 import { useTheme } from "../hooks/useTheme";
 import contactMeImage from "../assets/contact-me.png";
+import updatedResume from "../assets/sumanth-s-s-updated-resume-2026.pdf"
 
 export default function ContactPage() {
   // const {openModal, isOpenModal} = useOutletContext();
@@ -37,7 +38,7 @@ export default function ContactPage() {
                 &nbsp;Resume:{" "}
                 <Link
                   className="underline decoration-1 decoration-dotted hover:text-amber-500 decoration-amber-500"
-                  to="/src/assets/sumanth-s-s-updated-resume-2026.pdf"
+                  to= {updatedResume}
                   target="_blank"
                 >
                   Download CV
