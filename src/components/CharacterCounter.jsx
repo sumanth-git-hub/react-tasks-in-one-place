@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 
 const CharacterCounter = () => {
   const [darkMode] = useTheme();
@@ -30,20 +30,23 @@ const CharacterCounter = () => {
 
   useEffect(() => {
     textAreaElement.current.value = JSON.parse(
-      localStorage.getItem("storeContentValues")
+      localStorage.getItem("storeContentValues"),
     );
     characterCountElement.current.textContent = JSON.parse(
-      localStorage.getItem("fetchCharacterCount")
+      localStorage.getItem("fetchCharacterCount"),
     );
     wordCounterElement.current.textContent = JSON.parse(
-      localStorage.getItem("fetchWordCount")
+      localStorage.getItem("fetchWordCount"),
     );
   }, []);
 
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
       <div className={`w-full max-w-6xl min-h-[calc(100vh-100px)] p-4 m-auto`}>
-        <h2 className="my-2 text-center text-2xl font-bold">Online Character Count Tool in <span className="text-sky-400">React</span></h2>
+        <h2 className="my-2 text-center text-2xl font-bold">
+          Online Character Count Tool in{" "}
+          <span className="text-sky-400">React</span>
+        </h2>
         <textarea
           onChange={(e) => {
             countCharacters(e.target.value);

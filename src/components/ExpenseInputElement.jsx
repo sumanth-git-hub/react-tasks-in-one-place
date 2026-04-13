@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTheme } from '../hooks/UseTheme'
+import { useTheme } from '../hooks/useTheme'
 
 export default function ExpenseInputElement({id,name,value,onChange,inputError,label,placeholder}) {
     const [darkMode] = useTheme()

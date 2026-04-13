@@ -15,7 +15,7 @@ import {
   useSortable,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import {CSS} from '@dnd-kit/utilities';
+import { CSS } from "@dnd-kit/utilities";
 import SortableItem from "./SortableItem";
 
 const ToDoList = () => {
@@ -66,8 +66,8 @@ const ToDoList = () => {
         prev.map((todo) =>
           todo.id === editingId
             ? { ...todo, textContent: trimmedValue, displayStatus: "" }
-            : todo
-        )
+            : todo,
+        ),
       );
       setEditingId(null);
     } else {
@@ -100,7 +100,7 @@ const ToDoList = () => {
                 ? ""
                 : "strikeOutContent",
           }
-        : check
+        : check,
     );
     setTodosItem(updateTodoList);
   }
@@ -135,7 +135,7 @@ const ToDoList = () => {
         delay: 250,
         tolerance: 5,
       },
-    })
+    }),
   );
 
   // function handleDragEnd(event) {
@@ -151,7 +151,7 @@ const ToDoList = () => {
   //   }
   // }
 
-    const handleDragEnd = (ev) => {
+  const handleDragEnd = (ev) => {
     const { active, over } = ev;
     if (!over || active.id === over.id) return;
 
@@ -210,21 +210,23 @@ const ToDoList = () => {
             sensors={sensors}
             onDragEnd={handleDragEnd}
           >
-            <SortableContext items={todosItems} strategy={verticalListSortingStrategy}>
-  <ul className="list-container pb-6">
-    {todosItems?.map((todo) => (
-      <SortableItem
-        key={todo.id}
-        todo={todo}
-        updateTodo={updateTodo}
-        editingRow={editingRow}
-        removeElement={removeElement}
-        darkMode={darkMode}
-      />
-    ))}
-  </ul>
-</SortableContext>
-
+            <SortableContext
+              items={todosItems}
+              strategy={verticalListSortingStrategy}
+            >
+              <ul className="list-container pb-6">
+                {todosItems?.map((todo) => (
+                  <SortableItem
+                    key={todo.id}
+                    todo={todo}
+                    updateTodo={updateTodo}
+                    editingRow={editingRow}
+                    removeElement={removeElement}
+                    darkMode={darkMode}
+                  />
+                ))}
+              </ul>
+            </SortableContext>
           </DndContext>
         </div>
         {/* 

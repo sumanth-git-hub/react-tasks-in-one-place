@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTheme } from "../../hooks/UseTheme";
+import { useTheme } from "../../hooks/useTheme";
 import AccordionCom from "../multiStepForm/AccordionCom";
 
 const ImageCardCarousel = () => {
@@ -26,8 +26,8 @@ const ImageCardCarousel = () => {
     //   setImageCount(0);
     // }
     setImageCount((prevImageCount) => {
-      return prevImageCount < imagesData.length - 1 ? prevImageCount + 1 : 0
-    })
+      return prevImageCount < imagesData.length - 1 ? prevImageCount + 1 : 0;
+    });
   };
   const decreaseCount = () => {
     // if (imageCount <= 0) {
@@ -37,29 +37,31 @@ const ImageCardCarousel = () => {
     //     return prev - 1;
     //   });
     // }
-    setImageCount((prevImageNumber) =>  {
-      return prevImageNumber === 0? imagesData.length-1: prevImageNumber - 1
-    })
+    setImageCount((prevImageNumber) => {
+      return prevImageNumber === 0
+        ? imagesData.length - 1
+        : prevImageNumber - 1;
+    });
   };
 
-const intervalRef = useRef(null)
+  const intervalRef = useRef(null);
 
-useEffect(() => {
-  imageRequest()
-}, [])
+  useEffect(() => {
+    imageRequest();
+  }, []);
 
-useEffect(() => {
-  if (imagesData.length === 0) return
+  useEffect(() => {
+    if (imagesData.length === 0) return;
 
-  intervalRef.current = setInterval(() => {
-    // setImageCount(prev =>
-    //   prev === imagesData.length - 1 ? 0 : prev + 1
-    // )
-    increaseCount()
-  }, 5000)
+    intervalRef.current = setInterval(() => {
+      // setImageCount(prev =>
+      //   prev === imagesData.length - 1 ? 0 : prev + 1
+      // )
+      increaseCount();
+    }, 5000);
 
-  return () => clearInterval(intervalRef.current)
-}, [imagesData])
+    return () => clearInterval(intervalRef.current);
+  }, [imagesData]);
 
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
@@ -69,18 +71,20 @@ useEffect(() => {
           <span className="text-sky-400">React</span>&nbsp;
           <i className="fa-solid fa-sliders text-amber-500"></i>
         </h1>
-        <div onMouseEnter={() => {
-            clearInterval(intervalRef.current)
-        }} 
-        onMouseLeave={() => {
+        <div
+          onMouseEnter={() => {
+            clearInterval(intervalRef.current);
+          }}
+          onMouseLeave={() => {
             intervalRef.current = setInterval(() => {
-    // setImageCount(prev =>
-    //   prev === imagesData.length - 1 ? 0 : prev + 1
-    // )
-    increaseCount()
-  }, 5000)
-        }}
-        className="container w-1/2 h-96 mx-auto relative">
+              // setImageCount(prev =>
+              //   prev === imagesData.length - 1 ? 0 : prev + 1
+              // )
+              increaseCount();
+            }, 5000);
+          }}
+          className="container w-1/2 h-96 mx-auto relative"
+        >
           <div
             className="absolute top-1/2 left-1 cursor-pointer p-2 bg-amber-500 rounded-xl"
             onClick={() => {

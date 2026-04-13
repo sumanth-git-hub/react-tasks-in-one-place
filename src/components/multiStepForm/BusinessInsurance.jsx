@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTheme } from "../../hooks/UseTheme";
+import { useTheme } from "../../hooks/useTheme";
 import MultiStepComponent from "./MultiStepComponent";
 import CompanyInfo from "./CompanyInfo";
 import IndustryInfo from "./IndustryInfo";
@@ -22,7 +22,7 @@ const BusinessInsurance = () => {
     sumInsured: "",
     registeredInIndia: "Yes",
     acceptTheTerms: "accept",
-  }
+  };
   const [inputValues, setInputValues] = useState(initialInputValues);
   const [errorElement, setErrorElement] = useState({
     // nameError: 'Please enter full name',
@@ -106,29 +106,36 @@ const BusinessInsurance = () => {
   ];
 
   const [formCount, setFormCount] = useState(0);
-    let ActiveComponent = newSteps[formCount].component;
-    const [showTermsModal, setShowTermsModal] = useState(false)
-    const [showThanksModal, setShowThanksModal] = useState(false)
-    // console.log(showTermsModal)
-  
-    const handleNext = () => {
-      const isValid = newSteps[formCount].addValidation();
-      if (isValid && formCount < newSteps.length - 1 && inputValues.acceptTheTerms === "accept") {
-        // setErrorElement({})
-        setFormCount((prev) => prev + 1);
-      } else if (formCount === newSteps.length - 1 && inputValues.acceptTheTerms === "accept") {
-        console.log(inputValues)
-        setShowThanksModal(true)
-        setInputValues(initialInputValues)
-        setErrorElement({})
-        setFormCount(0)
-      }
-    };
-    const handlePrev = () => {
-      if (formCount > 0) {
-        setFormCount((prev) => prev - 1);
-      }
-    };
+  let ActiveComponent = newSteps[formCount].component;
+  const [showTermsModal, setShowTermsModal] = useState(false);
+  const [showThanksModal, setShowThanksModal] = useState(false);
+  // console.log(showTermsModal)
+
+  const handleNext = () => {
+    const isValid = newSteps[formCount].addValidation();
+    if (
+      isValid &&
+      formCount < newSteps.length - 1 &&
+      inputValues.acceptTheTerms === "accept"
+    ) {
+      // setErrorElement({})
+      setFormCount((prev) => prev + 1);
+    } else if (
+      formCount === newSteps.length - 1 &&
+      inputValues.acceptTheTerms === "accept"
+    ) {
+      console.log(inputValues);
+      setShowThanksModal(true);
+      setInputValues(initialInputValues);
+      setErrorElement({});
+      setFormCount(0);
+    }
+  };
+  const handlePrev = () => {
+    if (formCount > 0) {
+      setFormCount((prev) => prev - 1);
+    }
+  };
 
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
@@ -139,73 +146,102 @@ const BusinessInsurance = () => {
           <i className="fa-regular fa-rectangle-list text-amber-500"></i>
         </h1>
         <div className="justify-center mx-auto items-start gap-10 mt-6 md:flex">
-        <StepperComponent formCount = {formCount} setFormCount = {setFormCount} newSteps = {newSteps} />
-        {/* <MultiStepComponent
+          <StepperComponent
+            formCount={formCount}
+            setFormCount={setFormCount}
+            newSteps={newSteps}
+          />
+          {/* <MultiStepComponent
           errorElement={errorElement}
           setErrorElement={setErrorElement}
           newSteps={newSteps}
           inputValues={inputValues}
           setInputValues={setInputValues}
         /> */}
-        <div className=" bg-gray-100 p-8 h-fit rounded-md add-shadow w-full text-black md:w-1/2">
-      <p className="bg-sky-200 p-2 mb-2 text-center font-semi-bold">
-        Business Insurance is <span className="text-green-600 font-semi-bold">Just 3 Steps Away!</span>
-      </p>
-      <div className="flex my-4 items-center justify-between">
-        <i
-          className="fa-solid fa-left-long cursor-pointer"
-          aria-hidden="true"
-          onClick={() => {
-            handlePrev();
-          }}
-        ></i>
-        <p>
-          Steps <span className="text-[#fa0]">{formCount + 1}</span> of 3
-        </p>
-      </div>
+          <div className=" bg-gray-100 p-8 h-fit rounded-md add-shadow w-full text-black md:w-1/2">
+            <p className="bg-sky-200 p-2 mb-2 text-center font-semi-bold">
+              Business Insurance is{" "}
+              <span className="text-green-600 font-semi-bold">
+                Just 3 Steps Away!
+              </span>
+            </p>
+            <div className="flex my-4 items-center justify-between">
+              <i
+                className="fa-solid fa-left-long cursor-pointer"
+                aria-hidden="true"
+                onClick={() => {
+                  handlePrev();
+                }}
+              ></i>
+              <p>
+                Steps <span className="text-[#fa0]">{formCount + 1}</span> of 3
+              </p>
+            </div>
 
-      {
-        <ActiveComponent
-          errorElement={errorElement}
-          setErrorElement={setErrorElement}
-          inputValues={inputValues}
-          setInputValues={setInputValues}
-        />
-      }
+            {
+              <ActiveComponent
+                errorElement={errorElement}
+                setErrorElement={setErrorElement}
+                inputValues={inputValues}
+                setInputValues={setInputValues}
+              />
+            }
 
-      <button
-        className="font-bold bg-[#fa0] w-full rounded-sm p-2 my-8 cursor-pointer"
-        onClick={() => {
-          handleNext();
-        }}
-      >
-        {formCount === newSteps.length - 1 ? "Get Quote" : "Next"}
-      </button>
-      <p className="relative">
-        <input
-          className="cursor-pointer"
-          id="accept"
-          type="checkbox"
-          checked={inputValues.acceptTheTerms === "accept"}
-          name={"accept"}
-          onChange={(e) => {
-            setInputValues((prev) => {
-              // console.log(e.target.checked);
-              return {
-                ...prev, acceptTheTerms: e.target.checked? e.target.name: e.target.checked,
-              };
-            });
-          }}
-        />
-        &nbsp;
-        <label htmlFor="accept">I agree to the <span className="test-underline underline decoration-dotted decoration-2 cursor-pointer" onClick={() => {
-          setShowTermsModal(!showTermsModal)
-        }}>Terms &amp; Conditions</span></label>
-        <span className="text-sm text-red-400 absolute top-6 left-0">{inputValues.acceptTheTerms === "accept" ? "" : "Please Accept the terms & condition"}</span>
-      <TermModal showTermsModal={showTermsModal}  setShowTermsModal = {setShowTermsModal} setInputValues = {setInputValues}/>
-      <ThanksModal  showThanksModal = {showThanksModal} setShowThanksModal = {setShowThanksModal}/>
-      </p>
-    </div>
+            <button
+              className="font-bold bg-[#fa0] w-full rounded-sm p-2 my-8 cursor-pointer"
+              onClick={() => {
+                handleNext();
+              }}
+            >
+              {formCount === newSteps.length - 1 ? "Get Quote" : "Next"}
+            </button>
+            <p className="relative">
+              <input
+                className="cursor-pointer"
+                id="accept"
+                type="checkbox"
+                checked={inputValues.acceptTheTerms === "accept"}
+                name={"accept"}
+                onChange={(e) => {
+                  setInputValues((prev) => {
+                    // console.log(e.target.checked);
+                    return {
+                      ...prev,
+                      acceptTheTerms: e.target.checked
+                        ? e.target.name
+                        : e.target.checked,
+                    };
+                  });
+                }}
+              />
+              &nbsp;
+              <label htmlFor="accept">
+                I agree to the{" "}
+                <span
+                  className="test-underline underline decoration-dotted decoration-2 cursor-pointer"
+                  onClick={() => {
+                    setShowTermsModal(!showTermsModal);
+                  }}
+                >
+                  Terms &amp; Conditions
+                </span>
+              </label>
+              <span className="text-sm text-red-400 absolute top-6 left-0">
+                {inputValues.acceptTheTerms === "accept"
+                  ? ""
+                  : "Please Accept the terms & condition"}
+              </span>
+              <TermModal
+                showTermsModal={showTermsModal}
+                setShowTermsModal={setShowTermsModal}
+                setInputValues={setInputValues}
+              />
+              <ThanksModal
+                showThanksModal={showThanksModal}
+                setShowThanksModal={setShowThanksModal}
+              />
+            </p>
+          </div>
         </div>
         <AccordionCom />
       </div>

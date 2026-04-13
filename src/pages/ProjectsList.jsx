@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import ComponentsData from "../components/reuseComponents/ComponentsData";
 import { CardsComponent } from "../components/reuseComponents/CardsComponent";
 

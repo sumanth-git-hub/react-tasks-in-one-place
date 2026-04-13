@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 
 const CustomBreadCrumb = ({ item = [] }) => {
-
-    const [darkMode] = useTheme()
+  const [darkMode] = useTheme();
 
   return (
-    <div className={`customBreadCrumbWrap pt-15 w-full ${darkMode ? "darkModeActive bg-black" : "bg-white"}`}>
+    <div
+      className={`customBreadCrumbWrap pt-15 w-full ${darkMode ? "darkModeActive bg-black" : "bg-white"}`}
+    >
       <Breadcrumb>
         {item.map((getItem, index) => {
           // console.log(item.length);
