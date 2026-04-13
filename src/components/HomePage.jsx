@@ -105,9 +105,9 @@ I build scalable and high-performance web applications with a strong focus on cl
           View more Projects&nbsp;
           <i className="fa-solid fa-arrow-up-right-from-square"></i>
         </Link>
-        <p className="text-sm my-4 fixed bottom-0 z-10 right-4 border border-amber-500 p-2 rounded-xl">
+        {/* <p className="text-sm my-4 fixed bottom-0 z-10 right-4 border border-amber-500 p-2 rounded-xl">
           Window Size: {screenSize.width} X {screenSize.height}
-        </p>
+        </p> */}
         <RatingComponent />
       </div>
     </section>
