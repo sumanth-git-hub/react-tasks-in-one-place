@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
+import { useAuth } from "../Context/AuthContext";
 
 const AutoType = ({fixedTextContent, wordsArray}) => {
-//   const wordsArray = ["HTML", "CSS", "JavaScript", "Tailwind CSS", "React.js"];
   const autoTypeElement = useRef(null);
+    const {userInformation, signUp, logOut} = useAuth()
 
 useEffect (() => {
     let wordIndex = 0;
@@ -54,10 +55,11 @@ useEffect (() => {
     }
     typeEffect()
     return () => clearTimeout(timeEffect)
-})
+},[])
   return (
     <div className="my-4 text-2xl font-semibold text-center">
       <h2>
+        {userInformation && <span className="text-amber-500 px-1">{userInformation.userName}</span>}
         {fixedTextContent}
         <span
           ref={autoTypeElement}

@@ -3,9 +3,8 @@ import Counter from "./Counter";
 import ImageComponent from "./ImageComponent";
 import lazyLoadImage from "../assets/react-lazy-load-image.png";
 import heroImage from "../assets/hero-image.png";
-// import { useOutletContext } from 'react-router-dom'
 import { ThemeContext } from "../Context/ThemeContext";
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from "../hooks/UseTheme";
 import useWindowSize from "../hooks/useWindowSize";
 import Accordion from "./Accordion";
 import ToggleAnswer from "./ToggleAnswer";
@@ -16,30 +15,15 @@ import OtpInputComponent from "./otpElements/OtpInputComponent";
 import RatingComponent from "./ratingElement/RatingComponent";
 import ComponentsData from "./reuseComponents/ComponentsData";
 import { CardsComponent } from "./reuseComponents/CardsComponent";
-// import lazyLoadImage from '../assets/men-and-love.png'
 
 export default function () {
-  // const {darkMode} = useOutletContext()
-  // const [darkMode] = useContext(ThemeContext)
   const [darkMode] = useTheme();
-  //   const [screenSize, setScreenSize] = useState({width: window.innerWidth, height: window.innerHeight})
-  // useEffect(() => {
-  //     window.addEventListener('resize', () => {
-  //     setScreenSize({
-  //       width: window.innerWidth,
-  //       height: window.innerHeight,
-  //     })
-  //   })
-  // },[0])
-  // console.log(ComponentsData)
-
-  const [screenSize] = useWindowSize();
 
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""} relative`}>
       <div className={`w-full max-w-6xl min-h-screen p-4 m-auto`}>
         <AutoType
-          fixedTextContent={"Welcome! This single-page website is built using"}
+          fixedTextContent={`Welcome! This single-page website is built using`}
           wordsArray={["HTML", "CSS", "JavaScript", "Tailwind CSS", "React.js"]}
         />
         <ImageComponent
@@ -54,19 +38,19 @@ I build scalable and high-performance web applications with a strong focus on cl
           >
             {
               <p className="text-sm mt-2">
-                <Link
+                <a
                   className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black  inline-block text-center"
-                  to="/about"
+                  href="/about"
                 >
                   About Me
-                </Link>
+                </a>
                 &nbsp;
-                <Link
+                <a
                   className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black inline-block text-center"
-                  to="/contact"
+                  href="/contact"
                 >
                   Get In Touch
-                </Link>
+                </a>
               </p>
             }
           </ToggleAnswer>
@@ -98,16 +82,13 @@ I build scalable and high-performance web applications with a strong focus on cl
             })
           }
         </section>
-        <Link
+        <a
           className="mx-2 my-4 py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black inline-block text-center"
-          to="/list-of-projects"
+          href="/list-of-projects"
         >
           View more Projects&nbsp;
           <i className="fa-solid fa-arrow-up-right-from-square"></i>
-        </Link>
-        {/* <p className="text-sm my-4 fixed bottom-0 z-10 right-4 border border-amber-500 p-2 rounded-xl">
-          Window Size: {screenSize.width} X {screenSize.height}
-        </p> */}
+        </a>
         <RatingComponent />
       </div>
     </section>
