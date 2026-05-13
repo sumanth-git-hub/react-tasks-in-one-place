@@ -1,30 +1,27 @@
 import React, { useContext } from "react";
-// import reactLogo from "../assets/react.svg";
 import reactLogo from "../assets/portfolio-logo.png";
-
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import Modal from "./Modal";
 import { ThemeContext } from "../Context/ThemeContext";
 import SignUpForm from "./SignUpForm";
 import CustomBreadCrumb from "./CustomBreadCrumb";
+import { useAuth } from "../Context/AuthContext";
 
 export default function HeaderComponent({ openModal, isOpenModal, theme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {userInformation, signUp, logOut} = useAuth()
   // const [darkMode, isDarkMode] = theme
   const [darkMode, isDarkMode] = useContext(ThemeContext)
       const [signAction, setSignAction] = useState("Sign Up");
       const [isBarIcon, setIsBarIcon] = useState(false)
 
        const FindPathName = useLocation()
-    // console.log(FindPathName.pathname)
 
     let pageName = ""
 
     if(FindPathName.pathname === "/"){
-      // console.log("Say Yes")
       pageName = "Home"
-      // console.log(pageName)
     }
     else {
           const findPageName= FindPathName?.pathname?.split("/").filter(Boolean).pop()?.split("-")
@@ -93,41 +90,17 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
                   Contact
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-amber-500 underline decoration-blue-500 decoration-dotted"
-                      : "initial"
-                  }
-                  to="/countries"
-                >
-                  Countries List
-                </NavLink>
-              </li>
               <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-amber-500 underline decoration-blue-500 decoration-dotted"
-                      : "initial"
-                  }
-                  to="/expense-tracker"
-                >
-                  E Tracker
-                </NavLink>
-              </li> */}
-              <li>
-                <button onClick={() => isOpenModal("HeaderComponent")}>
+                {userInformation ? <button onClick={() => logOut()} className="cursor-pointer bg-amber-500  px-2 py-1 rounded-sm text-sm">Logout</button> : <button className="cursor-pointer bg-gray-400 px-2 py-1 rounded-sm text-sm" onClick={() => isOpenModal("HeaderComponent")}>
                   Sing-In
-                </button>
+                </button>}
                 <Modal
                   openModal={openModal === "HeaderComponent"}
                   isOpenModal={() => isOpenModal(null)}
                   passHeading={signAction}
                   bottomLine={`Thanks for Choosing us!`}
                   Children={
-                      <SignUpForm signAction={signAction} setSignAction={setSignAction} />
+                      <SignUpForm  signAction={signAction} setSignAction={setSignAction} />
                   }
                 />
               </li>
@@ -141,7 +114,7 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
             <Link to="/">
               <img className="image-size invisible md:visible" src={reactLogo} alt={reactLogo} />
             </Link>
-            <ul className="flex justify-end w-full gap-4 invisible md:visible">
+            <ul className="flex justify-end items-center w-full gap-4 invisible md:visible">
               <li>
                 <NavLink
                   className={({ isActive }) =>
@@ -178,41 +151,17 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
                   Contact
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-amber-500 underline decoration-blue-500 decoration-dotted"
-                      : "initial"
-                  }
-                  to="/countries"
-                >
-                  Countries List
-                </NavLink>
-              </li>
               <li>
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-amber-500 underline decoration-blue-500 decoration-dotted"
-                      : "initial"
-                  }
-                  to="/expense-tracker"
-                >
-                  E Tracker
-                </NavLink>
-              </li> */}
-              <li>
-                <button className="cursor-pointer" onClick={() => isOpenModal("HeaderComponent")}>
+                {userInformation ? <button onClick={() => logOut()} className="cursor-pointer bg-amber-500  px-2 py-1 rounded-sm text-sm">Logout</button> : <button className="cursor-pointer bg-gray-400 px-2 py-1 rounded-sm text-sm" onClick={() => isOpenModal("HeaderComponent")}>
                   Sing-In
-                </button>
+                </button>}
                 <Modal
                   openModal={openModal === "HeaderComponent"}
                   isOpenModal={() => isOpenModal(null)}
                   passHeading={signAction}
-                  bottomLine={`Thank You!`}
+                  bottomLine={`Thanks for Signing in!`}
                   Children={
-                      <SignUpForm signAction={signAction} setSignAction={setSignAction} />
+                      <SignUpForm isOpenModal = {isOpenModal} signAction={signAction} setSignAction={setSignAction} />
                   }
                 />
               </li>
