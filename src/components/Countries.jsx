@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import CountryCard from "./CountryCard";
 import FilterComponent from "./FilterComponent";
 import { useOutletContext } from "react-router-dom";
@@ -12,7 +12,7 @@ export default function Countries() {
 
   useEffect(() => {
     fetch(
-      "https://gist.githubusercontent.com/sumanth-git-hub/f48ba4fff04cbe336717c1c8c4804c77/raw/cb9dff2df94f30cdc69032a382c296b26b386e72/rest-countries-api-file.json"
+      "https://gist.githubusercontent.com/sumanth-git-hub/f48ba4fff04cbe336717c1c8c4804c77/raw/cb9dff2df94f30cdc69032a382c296b26b386e72/rest-countries-api-file.json",
     )
       .then((res) => res.json())
       .then((data) => {
@@ -23,8 +23,8 @@ export default function Countries() {
   // console.log(countryData)
   return countryData === null ? (
     <FallbackComponent />
-    // <CountriesListShimmer />
   ) : (
+    // <CountriesListShimmer />
     <section
       className={`w-full min-h-[calc(100vh-100px)] ${
         darkMode ? "darkModeActive" : ""
@@ -42,7 +42,7 @@ export default function Countries() {
             .filter(
               (passCountryDetails) =>
                 passCountryDetails.name.common.toLowerCase().includes(query) ||
-                passCountryDetails.region.toLowerCase().includes(query)
+                passCountryDetails.region.toLowerCase().includes(query),
             )
             .map((passCountryDetails, index) => {
               return (
@@ -50,7 +50,7 @@ export default function Countries() {
                   key={index}
                   countryName={passCountryDetails.name.common}
                   countryPopulation={passCountryDetails.population.toLocaleString(
-                    "en-IN"
+                    "en-IN",
                   )}
                   countryRegion={passCountryDetails.region}
                   countryCapital={passCountryDetails.capital}

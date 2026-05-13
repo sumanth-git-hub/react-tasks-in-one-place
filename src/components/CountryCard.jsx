@@ -1,5 +1,5 @@
 import React from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import { Link, useOutletContext } from "react-router-dom";
 
 export default function CountryCard({

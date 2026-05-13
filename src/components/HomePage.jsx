@@ -4,7 +4,7 @@ import ImageComponent from "./ImageComponent";
 import lazyLoadImage from "../assets/react-lazy-load-image.png";
 import heroImage from "../assets/hero-image.png";
 import { ThemeContext } from "../Context/ThemeContext";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import useWindowSize from "../hooks/useWindowSize";
 import Accordion from "./Accordion";
 import ToggleAnswer from "./ToggleAnswer";

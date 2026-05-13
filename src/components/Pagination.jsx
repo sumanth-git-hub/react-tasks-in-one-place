@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import FallbackComponent from "./FallbackComponent";
 
 const Pagination = () => {
@@ -90,29 +90,33 @@ const Pagination = () => {
                 );
               })} */}
 
-                {!userData ? (
-                  <tr className="border">
-                    <td colSpan="4" className="text-center py-4">
-                      Please Wait for a Minute!
+              {!userData ? (
+                <tr className="border">
+                  <td colSpan="4" className="text-center py-4">
+                    Please Wait for a Minute!
+                  </td>
+                </tr>
+              ) : currentItems?.length > 0 ? (
+                currentItems.map((getUserData, index) => (
+                  <tr key={index} className="bg-gray-300 text-black">
+                    <td className="border px-2 w-1/8">
+                      {getUserData.firstName}
+                    </td>
+                    <td className="border px-2 w-1/8 ">{getUserData.email}</td>
+                    <td className="border px-2 w-1/8 ">{getUserData.phone}</td>
+                    <td className="border px-2 w-1/8 ">
+                      {getUserData.birthDate}
                     </td>
                   </tr>
-                ) : currentItems?.length > 0 ? (
-                  currentItems.map((getUserData, index) => (
-                    <tr key={index} className="bg-gray-300 text-black">
-                      <td className="border px-2 w-1/8">{getUserData.firstName}</td>
-                      <td className="border px-2 w-1/8 ">{getUserData.email}</td>
-                      <td className="border px-2 w-1/8 ">{getUserData.phone}</td>
-                      <td className="border px-2 w-1/8 ">{getUserData.birthDate}</td>
-                    </tr>
-                  ))
-                ) : (
-                  <tr className="border">
-                    <td colSpan="4" className="text-center py-4">
-                     Sorry No users found!
-                    </td>
-                  </tr>
-                )}
-              </tbody>
+                ))
+              ) : (
+                <tr className="border">
+                  <td colSpan="4" className="text-center py-4">
+                    Sorry No users found!
+                  </td>
+                </tr>
+              )}
+            </tbody>
           </table>
         </div>
         <div className="pagination-button mt-10 flex justify-center">

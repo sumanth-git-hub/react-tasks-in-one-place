@@ -1,11 +1,17 @@
 import React, { useEffect, useRef } from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import { Form } from "react-router-dom";
 import { useState } from "react";
 import ExpenseInputElement from "./ExpenseInputElement";
 import ExpenseCategoryInput from "./ExpenseCategoryInput";
 
-export default function ExpenseForm({ setExpense, inputValues, setInputValues,elementEditing, setElementEditing }) {
+export default function ExpenseForm({
+  setExpense,
+  inputValues,
+  setInputValues,
+  elementEditing,
+  setElementEditing,
+}) {
   const [darkMode] = useTheme();
 
   // const [inputValues, setInputValues] = useState({
@@ -29,61 +35,61 @@ export default function ExpenseForm({ setExpense, inputValues, setInputValues,el
     buttonRef.current.style.backgroundColor = "#fa0";
   }, []);
 
-
   // specific validation are written here with minLength, pattern
 
   const inputConditions = {
-    title : [
-      {required: true, message: "Please Enter the Item"},
-      {minLength: 3, message: "Title should be at lease 3 characters long"}
+    title: [
+      { required: true, message: "Please Enter the Item" },
+      { minLength: 3, message: "Title should be at lease 3 characters long" },
     ],
-    amount : [
-      {required: true, message: "Please Enter the Amount of the Item"},
-      {type: Number, message: "Please Enter the Amount in Number Format"}
+    amount: [
+      { required: true, message: "Please Enter the Amount of the Item" },
+      { type: Number, message: "Please Enter the Amount in Number Format" },
     ],
-    category : [
-      {required: true, message: "Please Select a Category"}
-    ],email : [
-      {required: true, message: "Please Enter the Email Address"},
-      {pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/ ,message: "Please enter a valid email address"}
-    ]
+    category: [{ required: true, message: "Please Select a Category" }],
+    email: [
+      { required: true, message: "Please Enter the Email Address" },
+      {
+        pattern: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+        message: "Please enter a valid email address",
+      },
+    ],
+  };
+  // console.log(inputConditions)
+
+  function inputValidation(inputData) {
+    const errorObject = {};
+    // console.log(Object.entries(inputData))
+
+    Object.entries(inputData).forEach(([key, value]) => {
+      // console.log(key, value)
+      inputConditions[key].some((rule) => {
+        // console.log(rule)
+
+        if (rule.required && !value) {
+          errorObject[key] = rule.message;
+          return true;
+        }
+        if (rule.minLength && value.length < 3) {
+          errorObject[key] = rule.message;
+          return true;
+        }
+        if (rule.type === Number && !/^-?\d*\.?\d+$/.test(value)) {
+          errorObject[key] = rule.message;
+        }
+        if (rule.pattern && !rule.pattern.test(value)) {
+          errorObject[key] = rule.message;
+
+          return true;
+        }
+      });
+    });
+
+    setInputError(errorObject);
+    return errorObject;
   }
-// console.log(inputConditions)
 
-function inputValidation(inputData) {
-  const errorObject = {};
-// console.log(Object.entries(inputData))
-
-Object.entries(inputData).forEach(([key, value]) => {
-  // console.log(key, value)
-  inputConditions[key].some((rule) => {
-    // console.log(rule)
-
-    if(rule.required && !value){
-      errorObject[key] = rule.message
-      return true
-    }
-    if(rule.minLength && value.length < 3){
-      errorObject[key] = rule.message
-      return true
-    }
-    if(rule.type === Number && !/^-?\d*\.?\d+$/.test(value)){
-      errorObject[key] = rule.message
-    }
-    if(rule.pattern && !rule.pattern.test(value)){
-      errorObject[key] = rule.message
-
-      return true
-    }
-  })
-})
-
-setInputError(errorObject)
- return errorObject;
-}
-
-
-/*
+  /*
 
 // here we have written the condition when the user try to submit without entering the content on input elements
 
@@ -119,20 +125,22 @@ setInputError(errorObject)
     if (Object.keys(validateInputValues).length > 0) {
       return;
     }
-    if(elementEditing){
-      setExpense((prevState) => prevState.map((yesEditing) => {
-        if(yesEditing.id === elementEditing){
-          return {...inputValues, id: elementEditing} 
-        }
-        return yesEditing
-      }))
+    if (elementEditing) {
+      setExpense((prevState) =>
+        prevState.map((yesEditing) => {
+          if (yesEditing.id === elementEditing) {
+            return { ...inputValues, id: elementEditing };
+          }
+          return yesEditing;
+        }),
+      );
       setInputValues({
-      title: "",
-      category: "",
-      amount: "",
-    });
-      setElementEditing('')
-      return
+        title: "",
+        category: "",
+        amount: "",
+      });
+      setElementEditing("");
+      return;
     }
     /*
     // "#new FormDataComment"
@@ -239,7 +247,9 @@ setInputError(errorObject)
         className={`add-btn w-full h-8 font-semibold mt-6 cursor-pointer text-black ${
           darkMode ? "darkShadow" : "applyShadow"
         } rounded`}
-      >{elementEditing ? "Save" : "Add"}</button>
+      >
+        {elementEditing ? "Save" : "Add"}
+      </button>
     </form>
   );
 }

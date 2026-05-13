@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 
 const TimerSection = () => {
   const [darkMode] = useTheme();
@@ -87,8 +87,6 @@ const TimerSection = () => {
     return () => clearInterval(resetIntervalElement.current);
   }, [stopTime, startWatch, pauseWatch]);
 
-  
-
   const monthsArray = [
     "January",
     "February",
@@ -106,25 +104,28 @@ const TimerSection = () => {
 
   let timeAndDate = new Date();
   const [isClockSeconds, setIsClockSeconds] = useState(0);
-  const [isHours, setIsHours] = useState(0)
+  const [isHours, setIsHours] = useState(0);
 
   useEffect(() => {
     setInterval(() => {
-    timeAndDate = new Date();
-      setIsClockSeconds(timeAndDate.getSeconds())
-      setIsHours(timeAndDate.getHours())
+      timeAndDate = new Date();
+      setIsClockSeconds(timeAndDate.getSeconds());
+      setIsHours(timeAndDate.getHours());
     }, 1000);
-  },[])
+  }, []);
 
-  if(isHours > 12){
-        setIsHours(timeAndDate.getHours() - 12)
-      }
+  if (isHours > 12) {
+    setIsHours(timeAndDate.getHours() - 12);
+  }
 
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
       <div className={`w-full max-w-6xl p-4 m-auto`}>
-        <div className={`calenderSection p-7 h-fit rounded-lg mb-4 ${
-            darkMode ? "darkShadow " : "applyShadow"} `}>
+        <div
+          className={`calenderSection p-7 h-fit rounded-lg mb-4 ${
+            darkMode ? "darkShadow " : "applyShadow"
+          } `}
+        >
           <h2 className="text-3xl font-semibold text-center mb-8">
             Clock and Calender in&nbsp;
             <span className="text-sky-300">React</span>
@@ -137,15 +138,31 @@ const TimerSection = () => {
                   : timeAndDate.getDate()}
               </p>
               <div className="self-center md:self-baseline-last">
-              <span className="text-2xl text-amber-500">{monthsArray[timeAndDate.getMonth()]}</span> {" "}
-              <span className="text-2xl text-sky-300">{timeAndDate.getFullYear()}</span>
+                <span className="text-2xl text-amber-500">
+                  {monthsArray[timeAndDate.getMonth()]}
+                </span>{" "}
+                <span className="text-2xl text-sky-300">
+                  {timeAndDate.getFullYear()}
+                </span>
               </div>
             </div>
             <div className={`digitalClock text-4xl flex`}>
-              <span className="w-14 inline-block mx-1 text-center">{isHours < 10 ? "0" + isHours : isHours}</span>:
-              <span className="w-14 inline-block mx-1 text-center">{timeAndDate.getMinutes() < 10 ? "0" + timeAndDate.getMinutes(): timeAndDate.getMinutes()}</span>:
-              <span className="w-14 inline-block mx-1 text-center">{isClockSeconds < 10 ? "0"+ isClockSeconds : isClockSeconds}</span>
-              <span className="w-14 inline-block mx-1 text-center">{timeAndDate.getHours() > 12 ? "PM" : "AM"}</span>
+              <span className="w-14 inline-block mx-1 text-center">
+                {isHours < 10 ? "0" + isHours : isHours}
+              </span>
+              :
+              <span className="w-14 inline-block mx-1 text-center">
+                {timeAndDate.getMinutes() < 10
+                  ? "0" + timeAndDate.getMinutes()
+                  : timeAndDate.getMinutes()}
+              </span>
+              :
+              <span className="w-14 inline-block mx-1 text-center">
+                {isClockSeconds < 10 ? "0" + isClockSeconds : isClockSeconds}
+              </span>
+              <span className="w-14 inline-block mx-1 text-center">
+                {timeAndDate.getHours() > 12 ? "PM" : "AM"}
+              </span>
             </div>
           </div>
         </div>

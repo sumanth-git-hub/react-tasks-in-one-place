@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import { quizData } from "./QuizQuestionsSet";
 import CustomBreadCrumb from "./CustomBreadCrumb";
 import { useLocation } from "react-router-dom";
@@ -37,10 +37,10 @@ const QuizFunction = () => {
               <h2 className="text-3xl font-bold text-amber-500 mb-6">
                 🎉 Congratulations!
               </h2>
-              
+
               {
-              //horizontal bar
-              /* <div className="progressBarContainer w-full max-w-2xl mx-auto h-8 my-2  bg-gray-400 rounded-2xl overflow-hidden">
+                //horizontal bar
+                /* <div className="progressBarContainer w-full max-w-2xl mx-auto h-8 my-2  bg-gray-400 rounded-2xl overflow-hidden">
                 <div
                   className={`progressBar h-full flex items-center justify-center text-black`}
                   style={{
@@ -51,15 +51,17 @@ const QuizFunction = () => {
                   <span className="align-middle">{progressWidth}%</span>
                 </div>
               </div> */
-
-              //below code is circular bar
+                //below code is circular bar
               }
-              <div className="circle-section" style={{
-                backgroundImage : `conic-gradient(#74D4FF ${progressWidth * 3.6}deg, rgba(166, 149, 149, 0.379) 0deg)`,
-                marginInline: `auto`
-              }}>
-                    <span className="percentageValue">{progressWidth}%</span>
-                </div>
+              <div
+                className="circle-section"
+                style={{
+                  backgroundImage: `conic-gradient(#74D4FF ${progressWidth * 3.6}deg, rgba(166, 149, 149, 0.379) 0deg)`,
+                  marginInline: `auto`,
+                }}
+              >
+                <span className="percentageValue">{progressWidth}%</span>
+              </div>
               <p className="mt-4 text-lg">
                 You have Scored {score} out of {questionsData.length}
               </p>
@@ -104,7 +106,9 @@ const QuizFunction = () => {
 
                           if (option === correctAnswer) {
                             setScore(score + 1);
-                            setProgressWidth(score/questionsData.length * 100 + 20);
+                            setProgressWidth(
+                              (score / questionsData.length) * 100 + 20,
+                            );
                           }
                           // console.log(score);
                         }

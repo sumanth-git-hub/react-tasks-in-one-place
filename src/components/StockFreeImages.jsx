@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTheme } from "../hooks/UseTheme";
+import { useTheme } from "../hooks/useTheme";
 import { Link } from "react-router-dom";
 
 const StockFreeImages = () => {
@@ -20,12 +20,13 @@ const StockFreeImages = () => {
     const searchQuery = query === "" ? "random" : query;
 
     fetch(
-        `https://api.unsplash.com/search/photos?page=${pageCount}&query=${searchQuery}&client_id=${accessKey}&per_page=30`
-      )
-        .then((response) => response.json())
-        .then((imageData) => {
-          setIsImageData(imageData.results);
-        }).catch((err) => console.error("Fetch Error:", err));
+      `https://api.unsplash.com/search/photos?page=${pageCount}&query=${searchQuery}&client_id=${accessKey}&per_page=30`,
+    )
+      .then((response) => response.json())
+      .then((imageData) => {
+        setIsImageData(imageData.results);
+      })
+      .catch((err) => console.error("Fetch Error:", err));
 
     // if (query === "") {
     //   fetch(
@@ -50,7 +51,10 @@ const StockFreeImages = () => {
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
       <div className={`w-full max-w-6xl min-h-[calc(100vh-100px)] p-4 m-auto`}>
-        <h2 className="my-4 text-center text-2xl font-bold">Find Stock Free Image using API in <span className="text-sky-400">React</span></h2>
+        <h2 className="my-4 text-center text-2xl font-bold">
+          Find Stock Free Image using API in{" "}
+          <span className="text-sky-400">React</span>
+        </h2>
         <form className="relative w-full">
           <input
             ref={inputRefElement}
@@ -92,7 +96,7 @@ const StockFreeImages = () => {
         </div>
         <div className="flex">
           <button
-          disabled = {pageCount === 1}
+            disabled={pageCount === 1}
             onClick={() => {
               setPageCount((prev) => Math.max(prev - 1, 1));
               window.scrollTo({ top: 0, behavior: "smooth" });
@@ -102,7 +106,6 @@ const StockFreeImages = () => {
             <i className="fa-solid fa-arrow-left"></i>&nbsp;Previous
           </button>
           <button
-
             onClick={() => {
               setPageCount((prevState) => prevState + 1);
               window.scrollTo({ top: 0, behavior: "smooth" });

@@ -1,46 +1,46 @@
 import React, { useEffect } from "react";
-import { useTheme } from "../../hooks/UseTheme";
+import { useTheme } from "../../hooks/useTheme";
 import { useState } from "react";
 import js from "@eslint/js";
 
 const AutoCompleteSearchBar = () => {
-    const [similarSearch, setSimilarSearch] = useState([]);
-    const [userQuery, setUserQuery] = useState("")
-    const [cache, setCache] = useState({})
-    const [showResults, setShowResults] = useState(false)
-    // console.log(showResults)
+  const [similarSearch, setSimilarSearch] = useState([]);
+  const [userQuery, setUserQuery] = useState("");
+  const [cache, setCache] = useState({});
+  const [showResults, setShowResults] = useState(false);
+  // console.log(showResults)
 
-   const fetchAutoData = async () => {
-    
-
-    if(cache[userQuery]){
-        console.log(userQuery, "Cache returned")
-        setSimilarSearch(cache[userQuery])
-        return
-    }
-        
-        try {
-            const findData = await fetch(`https://dummyjson.com/recipes/search?q=${userQuery}&limit=10`);
-            const searchData = await findData.json()
-            // console.log(searchData.recipes)
-            setSimilarSearch(searchData.recipes)
-
-            setCache((prev) => {
-                // console.log(searchData.recipes)
-                return {...prev, [userQuery]: searchData.recipes}
-            })
-        } catch (err) {
-            console.error("Unable to fetch the data", err)
-        }
+  const fetchAutoData = async () => {
+    if (cache[userQuery]) {
+      console.log(userQuery, "Cache returned");
+      setSimilarSearch(cache[userQuery]);
+      return;
     }
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            fetchAutoData()
-        }, 400)
+    try {
+      const findData = await fetch(
+        `https://dummyjson.com/recipes/search?q=${userQuery}&limit=10`,
+      );
+      const searchData = await findData.json();
+      // console.log(searchData.recipes)
+      setSimilarSearch(searchData.recipes);
 
-        return (() => clearTimeout(timer))
-    },[userQuery])
+      setCache((prev) => {
+        // console.log(searchData.recipes)
+        return { ...prev, [userQuery]: searchData.recipes };
+      });
+    } catch (err) {
+      console.error("Unable to fetch the data", err);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetchAutoData();
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [userQuery]);
 
   const [darkMode] = useTheme();
   return (
@@ -61,10 +61,10 @@ const AutoCompleteSearchBar = () => {
                 value={userQuery}
                 name="q"
                 onChange={(e) => {
-                    setUserQuery(e.target.value)
+                  setUserQuery(e.target.value);
                 }}
                 onFocus={() => {
-                    setShowResults(true)
+                  setShowResults(true);
                 }}
                 // onBlur={() => {
                 //     setShowResults(false)
@@ -76,16 +76,22 @@ const AutoCompleteSearchBar = () => {
             </div>
           </form>
           <ul className="w-1/2 shadow overflow-y-scroll max-h-96 mt-4">
-          {
-           showResults?  similarSearch.map((item, index) => {
-                return <li key={item.id} className="cursor-pointer hover:bg-gray-300 hover:text-black px-4" onClick={(e) => {
-                    // console.log(e.target.textContent)
-                    setUserQuery(e.target.textContent)
-                }}>
-              {item.name}
-            </li>
-            }) : ""
-          }
+            {showResults
+              ? similarSearch.map((item, index) => {
+                  return (
+                    <li
+                      key={item.id}
+                      className="cursor-pointer hover:bg-gray-300 hover:text-black px-4"
+                      onClick={(e) => {
+                        // console.log(e.target.textContent)
+                        setUserQuery(e.target.textContent);
+                      }}
+                    >
+                      {item.name}
+                    </li>
+                  );
+                })
+              : ""}
           </ul>
         </div>
       </div>
