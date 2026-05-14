@@ -13,6 +13,16 @@ export const CardsComponent = ({
 }) => {
   const [darkMode] = useTheme();
   const { isLoaded, setIsLoaded } = useOutletContext();
+export const CardsComponent = ({
+  projectName,
+  lazyLoadImage,
+  altTag,
+  urlSlug,
+  productDescription,
+  gitHubRepo,
+}) => {
+  const [darkMode] = useTheme();
+  const { isLoaded, setIsLoaded } = useOutletContext();
   return (
     <div
       className={`w-[300px] overflow-hidden rounded-xl m-2 ${darkMode ? "darkShadow" : "applyShadow"}`}
