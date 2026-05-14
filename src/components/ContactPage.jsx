@@ -8,35 +8,12 @@ import contactMeImage from "../assets/contact-me.png";
 import updatedResume from "../assets/sumanth-s-s-updated-resume-2026.pdf"
 
 export default function ContactPage() {
-  // const {openModal, isOpenModal} = useOutletContext();
-// const {openModal, isOpenModal} = useOutletContext();
-
-// const [darkMode] = useContext(ThemeContext)
   const [darkMode] = useTheme();
-  // const contactImage = 'src/assets/contact-me.png'
-  // const [darkMode] = useContext(ThemeContext)
-  const [darkMode] = useTheme();
-// const contactImage = 'src/assets/contact-me.png'
   return (
-    <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
       <div className={`w-full min-h-[calc(100vh-100px)] max-w-6xl p-4 m-auto`}>
         <h2 className="my-2 text-center text-2xl font-bold">Contact me</h2>
-        <h2 className="my-2 text-center text-2xl font-bold">Contact me</h2>
         <div>
-          <p>
-            I’m currently open to{" "}
-            <span className="text-amber-500">Junior Frontend Developer</span>{" "}
-            opportunities. Feel free to reach out through any of the channels
-            below.
-          </p>
-          <section className="flex items-center gap-8 mt-4 flex-col md:flex-row">
-            <div className="w-full max-w-[400px]">
-              <img
-                className="object-cover w-full rounded-xl"
-                src={contactMeImage}
-                alt={"contact-section-image"}
-              />
           <p>
             I’m currently open to{" "}
             <span className="text-amber-500">Junior Frontend Developer</span>{" "}
@@ -123,22 +100,10 @@ export default function ContactPage() {
                 <i className="fa-solid fa-clock text-amber-500"></i>
                 &nbsp;Response time: Expect in few hours
               </p>
-          </address>
+            </address>
           </section>
         </div>
-        {/* <button onClick={() => {
-      {/* <button onClick={() => {
-        isOpenModal("contactPage")
-      }} className='cursor-pointer text-black bg-amber-400 px-4 py-1 rounded-xl my-4'> <i className="fa-solid fa-headset"></i>&nbsp;&nbsp;Connect with us</button>
-      <Modal openModal={openModal === "contactPage"} isOpenModal={() => isOpenModal(null)} passHeading={`How Can we Help You!`} bottomLine={`Thanks for reaching out hope your issue is resolved!`} Children={
-        <div className='flex flex-wrap gap-4 justify-between py-4'>
-        <p><i className="fa-solid fa-phone"></i>&nbsp;Call Us: <span><a className='text-amber-500' href="tel:7348988867">7348988867</a></span></p>
-          <p><i className="fa-solid fa-comments"></i>&nbsp;Chat with us in Whatsapp: <span><a className='text-amber-500'  href="https://api.whatsapp.com/send?l=en&text=Hi&phone=8197470643" target='_blank'>8197470643</a></span></p>
-        </div>
-      }/> */}
-    </div>
       </div>
     </section>
-  );
   );
 }

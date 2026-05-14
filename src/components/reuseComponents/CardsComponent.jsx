@@ -1,18 +1,8 @@
 import React, { lazy } from "react";
 import lazyLoadImage from "../../assets/react-lazy-load-image.png";
 import { useTheme } from "../../hooks/useTheme";
-import { Link, useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 
-export const CardsComponent = ({
-  projectName,
-  lazyLoadImage,
-  altTag,
-  urlSlug,
-  productDescription,
-  gitHubRepo,
-}) => {
-  const [darkMode] = useTheme();
-  const { isLoaded, setIsLoaded } = useOutletContext();
 export const CardsComponent = ({
   projectName,
   lazyLoadImage,
@@ -50,12 +40,12 @@ export const CardsComponent = ({
             </a>
           </p>
         )}
-        <Link
+        <a
           className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black w-full block text-center"
-          to={urlSlug}
+          href={urlSlug}
         >
           View Project
-        </Link>
+        </a>
       </div>
     </div>
   );

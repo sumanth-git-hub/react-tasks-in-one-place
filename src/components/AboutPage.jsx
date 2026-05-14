@@ -11,7 +11,6 @@ export default function AboutPage() {
   // const {darkMode} = useOutletContext()
   // const [darkMode] = useContext(ThemeContext)
   const [darkMode] = useTheme();
-  const [darkMode] = useTheme();
   // const [screenSize] = useWindowSize()
   const getImage = `src/assets/sumanth-profile-picture.png`;
 
