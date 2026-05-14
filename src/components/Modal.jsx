@@ -22,8 +22,7 @@ function closeModal() {
         <div> {
             Children
             }
-          {/* <p>Call Us: <span><a className='text-amber-500' href="tel:7348988867">7348988867</a></span></p>
-          <p>Chat with us in Whatsapp: <span><a className='text-amber-500'  href="https://api.whatsapp.com/send?l=en&text=Hi&phone=8197470643" target='_blank'>8197470643</a></span></p> */}
+         
         </div><hr/>
         <p className='py-4 flex justify-between items-center'>{bottomLine} <span className='cursor-pointer bg-amber-400 px-4 py-1 rounded-xl' onClick={() => {
           closeModal()

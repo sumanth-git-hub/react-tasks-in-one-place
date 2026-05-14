@@ -2,6 +2,7 @@ import React, { lazy } from "react";
 import lazyLoadImage from "../../assets/react-lazy-load-image.png";
 import { useTheme } from "../../hooks/useTheme";
 import { useOutletContext } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const CardsComponent = ({
   projectName,
@@ -40,12 +41,12 @@ export const CardsComponent = ({
             </a>
           </p>
         )}
-        <a
+        <Link
           className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black w-full block text-center"
-          href={urlSlug}
+          to={urlSlug}
         >
           View Project
-        </a>
+        </Link>
       </div>
     </div>
   );

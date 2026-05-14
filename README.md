@@ -52,6 +52,8 @@ This project is built using modern frontend technologies to ensure a responsive,
 
 - 🔗 **Project Showcase System** – Displays featured projects on the homepage and a complete project list on a dedicated page.
 
+- 🔐 **User Authentication** - Implemented user authentication UI with Sign In / Sign Up functionality.
+
 ---
 
 ## 📸 Screenshots
@@ -68,6 +70,8 @@ This project is built using modern frontend technologies to ensure a responsive,
 ### 📞 Contact Page
 ![Contact Page](./src/assets/contact.png)
 
+### 📲 Sign up & Sign in Section
+![Sign up](./src/assets/sign-in-section.png)
 ---
 
 ## 📦 Installation
@@ -111,3 +115,5 @@ npm run dev
 - 🏗️ Learned how to structure a complete frontend project with clean architecture and best practices.
 
 - 🔀 Learned and applied conditional rendering techniques to dynamically control UI based on application state.
+
+- 🔐 Implemented user authentication UI with Sign In / Sign Up functionality using React Context API and Local Storage for state persistence.

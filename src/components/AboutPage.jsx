@@ -4,16 +4,12 @@ import { ThemeContext } from "../Context/ThemeContext";
 import useWindowSize from "../hooks/useWindowSize";
 import { useTheme } from "../hooks/useTheme";
 import TwoSection from "./reuseComponents/TwoSection";
-// import {todos} from "../components/Data"
-
+import getImage from "../assets/sumanth-profile-picture.png"
 export default function AboutPage() {
   const [data, setData] = useState([]);
   // const {darkMode} = useOutletContext()
   // const [darkMode] = useContext(ThemeContext)
   const [darkMode] = useTheme();
-  // const [screenSize] = useWindowSize()
-  const getImage = `src/assets/sumanth-profile-picture.png`;
-
   return (
     <section className={`w-full ${darkMode ? "darkModeActive" : ""}`}>
       <div className={`w-full max-w-6xl p-4 m-auto min-h-[calc(100vh-100px)]`}>
@@ -68,20 +64,6 @@ export default function AboutPage() {
             </p>
           </div>
         </TwoSection>
-
-        {
-          //here is the code understanding of how we can add the lazy load on data that loads after the action
-          //   <button className='bg-amber-500 px-4 py-2 rounded-xl bold cursor-pointer text-black' onClick={(e) => {
-          //   import('./Data')
-          //   .then((module) => setData(module.todos))
-          //   .catch((err) => console.error("Failed to load data",err))
-          // }}>Check Data</button>
-          // <ul>
-          //   {
-          //     data.map((todo,index) => <li key={index}>{index + 1} {todo.title}</li>)
-          //   }
-          // </ul>
-        }
       </div>
     </section>
   );
