@@ -1,7 +1,7 @@
-import React, { lazy } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import lazyLoadImage from "../../assets/react-lazy-load-image.png";
 import { useTheme } from "../../hooks/useTheme";
-import { useOutletContext, useRouteLoaderData } from "react-router-dom";
+import { useNavigate, useOutletContext, useRouteLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const CardsComponent = ({
@@ -14,6 +14,12 @@ export const CardsComponent = ({
 }) => {
   const [darkMode] = useTheme();
   const { isLoaded, setIsLoaded } = useOutletContext();
+
+const [webPath, setWebPath] = useState("")
+const navigate = useNavigate()
+useEffect(() => {
+window.scrollTo({ top: 0, behavior: "smooth" })
+}, [webPath])
   return (
     <div
       className={`w-[300px] overflow-hidden rounded-xl m-2 ${darkMode ? "darkShadow" : "applyShadow"}`}
@@ -41,13 +47,16 @@ export const CardsComponent = ({
             </a>
           </p>
         )}
-        <Link
+        <button
           className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black w-full block text-center"
-          to={urlSlug}
-          onClick={() => useRouteLoaderData()}
+          // to={urlSlug}
+          onClick={() => (
+            navigate(urlSlug),
+          setWebPath(urlSlug)
+          )}
         >
           View Project
-        </Link>
+        </button>
       </div>
     </div>
   );
