@@ -54,6 +54,8 @@ This project is built using modern frontend technologies to ensure a responsive,
 
 - 🔐 **User Authentication** - Implemented user authentication UI with Sign In / Sign Up functionality.
 
+- 💻 **Code Snippet** - Used React Syntax Highlighter to display formatted code snippets with enhanced readability.
+
 ---
 
 ## 📸 Screenshots

@@ -15,6 +15,7 @@ import ExpenseTracker from "./components/ExpenseTracker.jsx";
 import QuizFunction from "./components/QuizFunction.jsx";
 import CharacterCounter from "./components/CharacterCounter.jsx";
 import ToDoList from "./components/ToDoList.jsx";
+// import { SinglePageWeb } from "./projects/single-page-agency-web/SinglePageWeb.jsx";
 // import ProjectsList from "./pages/ProjectsList.jsx";
 // import ToastNotifications from "./components/ToastNotifications.jsx";
 // import InfiniteScrollComponent from "./components/infiniteScroll/infiniteScrollComponent.jsx";
@@ -46,6 +47,9 @@ const InfiniteScrollComponent = lazy(
 );
 const ToastNotifications = lazy(
   () => import("./components/ToastNotifications.jsx"),
+);
+const SinglePageWeb = lazy(
+  () => import("./projects/single-page-agency-web/SinglePageWeb.jsx"),
 );
 const AboutPage = lazy(() =>
   waitForResponse(1000).then(() => import("./components/AboutPage.jsx")),
@@ -138,6 +142,10 @@ const router = createBrowserRouter([
       {
         path: "/list-of-projects",
         element: <ProjectsList />,
+      },
+      {
+        path: "/single-page-web",
+        element: <SinglePageWeb />,
       },
     ],
   },

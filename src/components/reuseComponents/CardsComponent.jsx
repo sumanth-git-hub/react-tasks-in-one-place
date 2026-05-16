@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import lazyLoadImage from "../../assets/react-lazy-load-image.png";
 import { useTheme } from "../../hooks/useTheme";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useRouteLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 export const CardsComponent = ({
@@ -44,6 +44,7 @@ export const CardsComponent = ({
         <Link
           className="py-2 px-4 rounded-xl font-medium bg-amber-400 cursor-pointer text-black w-full block text-center"
           to={urlSlug}
+          onClick={() => useRouteLoaderData()}
         >
           View Project
         </Link>

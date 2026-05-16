@@ -19,6 +19,7 @@
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.75.0",
     "react-router-dom": "^7.8.1",
+    "react-syntax-highlighter": "^16.1.1",
     "reactstrap": "^9.2.3",
     "tailwindcss": "^4.1.12"
   },

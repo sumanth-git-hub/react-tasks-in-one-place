@@ -8,7 +8,7 @@ const CustomBreadCrumb = ({ item = [] }) => {
 
   return (
     <div
-      className={`customBreadCrumbWrap pt-15 w-full ${darkMode ? "darkModeActive bg-black" : "bg-white"}`}
+      className={`customBreadCrumbWrap pt-18 w-full ${darkMode ? "darkModeActive" : "bg-white"}`}
     >
       <Breadcrumb>
         {item.map((getItem, index) => {

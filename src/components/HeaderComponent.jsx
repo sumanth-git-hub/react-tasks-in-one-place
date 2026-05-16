@@ -32,7 +32,7 @@ export default function HeaderComponent({ openModal, isOpenModal, theme }) {
 
   return (
     <>
-      <header className={`fixed top-0 w-full z-10 backdrop-blur-sm shadow ${darkMode ? "darkModeActive": ''}`} >
+      <header className={`fixed top-0 w-full z-10 backdrop-blur-sm shadow ${darkMode ? "darkModeActive": ''} portfolio-header`} >
         <nav>
           {/* Mobile Header */}
           <div className="w-full p-4 m-auto md:hidden">

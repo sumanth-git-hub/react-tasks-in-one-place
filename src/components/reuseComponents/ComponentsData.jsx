@@ -13,8 +13,18 @@ import toastNotificationImage from "../../assets/project-images/toast-notificati
 import characterCounterImage from "../../assets/project-images/character-counter.png";
 import autoCompleteSearchImage from "../../assets/project-images/auto-search.png";
 import stockFreeImage from "../../assets/project-images/api-call.png";
+import writeCode from "../../assets/project-images/write-code.png"
 
 const ComponentsData = [
+  {
+    componentId: 0,
+    componentName: "Single Page Website",
+    builtWith: 'A responsive SPA built with React and Tailwind CSS, enhanced with dynamic code previews using React Syntax Highlighter.',
+    componentUrl: "/single-page-web",
+    componentImage: writeCode,
+    isFeatured: true,
+    gitHubRepo: 'https://github.com/sumanth-git-hub/react-tasks-in-one-place/tree/main/src/projects/single-page-agency-web'
+  },
     {
     componentId: 1,
     componentName: "REST Countries Explorer",
@@ -58,23 +68,23 @@ const ComponentsData = [
     isFeatured: true,
     gitHubRepo: 'https://github.com/sumanth-git-hub/web-development/tree/main/React.js/Projects/08-drag-and-drop-crud'
   },
-  {
+    {
     componentId: 6,
-    componentName: "Infinite Image Gallery",
-    builtWith: 'Built with React, Infinite scroll image gallery with API integration, IntersectionObserver, responsive layout, and error handling.',
-    componentUrl: "/infinite-scroll",
-    componentImage: infiniteScrollImage,
-    isFeatured: true,
-    gitHubRepo: 'https://github.com/sumanth-git-hub/web-development/tree/main/React.js/Projects/20-infinite-scroll-in-react'
-  },
-  {
-    componentId: 7,
     componentName: "Table with Pagination",
     builtWith: 'API-driven user data table client-side pagination, dynamic page controls, search filtering, and robust loading and error state handling.',
     componentUrl: "/pagination",
     componentImage: paginationImage,
     isFeatured: true,
     gitHubRepo: 'https://github.com/sumanth-git-hub/table-with-pagination'
+  },
+  {
+    componentId: 7,
+    componentName: "Infinite Image Gallery",
+    builtWith: 'Built with React, Infinite scroll image gallery with API integration, IntersectionObserver, responsive layout, and error handling.',
+    componentUrl: "/infinite-scroll",
+    componentImage: infiniteScrollImage,
+    isFeatured: false,
+    gitHubRepo: 'https://github.com/sumanth-git-hub/web-development/tree/main/React.js/Projects/20-infinite-scroll-in-react'
   },
   {
     componentId: 8,
@@ -124,6 +134,6 @@ const ComponentsData = [
     componentUrl: "/stock-free-images",
     componentImage: stockFreeImage,
     isFeatured: false,
-  },
+  }
 ];
 export default ComponentsData;

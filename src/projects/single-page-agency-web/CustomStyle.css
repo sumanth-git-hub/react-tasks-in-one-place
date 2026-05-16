@@ -1,0 +1,50 @@
+@layer utilities {
+    .animate-in {
+        animation-fill-mode: both;
+    }
+    .slide-in-from-top {
+        animation-name: slideFromTop;
+    }
+    .slide-in-from-bottom {
+        animation-name: sliderFromBottom;
+    }
+    .duration-300 {
+        animation-duration: 300ms;
+    }
+    .duration-200 {
+        animation-duration: 200ms;
+    }
+    .duration-700 {
+        animation-duration: 700ms;
+    }
+    .delay-100 {
+        animation-delay: 100ms;
+    }
+    .delay-200 {
+        animation-delay: 200ms;
+    }
+    .delay-300 {
+        animation-delay: 300ms;
+    }
+}
+
+@keyframes slideFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes sliderFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
