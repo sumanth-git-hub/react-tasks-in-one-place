@@ -11,6 +11,7 @@ import FallbackComponent from "./components/FallbackComponent";
 import CustomBreadCrumb from "./components/CustomBreadCrumb";
 import { AuthProvider } from "./Context/AuthContext";
 // import { ThemeContext } from './Context/ThemeContext'
+import {Toaster} from 'react-hot-toast'
 
 function App() {
   const [openModal, isOpenModal] = useState(null);
@@ -20,6 +21,7 @@ function App() {
   return (
     <ThemeProvider>
       <AuthProvider >
+        <Toaster />
       <HeaderComponent
         openModal={openModal}
         isOpenModal={isOpenModal}
