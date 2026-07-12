@@ -4,7 +4,7 @@ import { ThemeContext } from "../Context/ThemeContext";
 import useWindowSize from "../hooks/useWindowSize";
 import { useTheme } from "../hooks/useTheme";
 import TwoSection from "./reuseComponents/TwoSection";
-import getImage from "../assets/sumanth-profile-picture.png"
+import getImage from "../assets/sumanth-profile-picture.png";
 export default function AboutPage() {
   const [data, setData] = useState([]);
   // const {darkMode} = useOutletContext()
@@ -17,9 +17,9 @@ export default function AboutPage() {
           imageLink={getImage}
           altTag={"Sumanth S S"}
           heading={`Frontend Developer with 4 Years of Technical SEO Experience | `}
-          yellowText={"JavaScript"}
-          divider={` & `}
-          blueText={"React"}
+          yellowText={"JavaScript, "}
+          // divider={` & `}
+          blueText={"React & React Native"}
         >
           <div className="content-section mt-4 md:mt-0">
             <p className="mb-2">
@@ -38,16 +38,20 @@ export default function AboutPage() {
             <p className="mb-2">
               Over the past year, I have focused on building my frontend
               development skills, learning and working with{" "}
-              <span className="text-[#E65100]">HTML</span> ,{" "}
-              <span className="text-[#2E53E5]">CSS</span>,{" "}
-              <span className="text-[#42BFF8]">Tailwind CSS</span>,{" "}
-              <span className="text-[#841BFA]">Bootstrap</span>,{" "}
-              <span className="text-[#F7E02C]">JavaScript</span>,{" "}
-              <span className="text-[#20D9FF]">React</span>,{" "}
-              <span className="text-[#F0573A]">Git</span>, and GitHub. I have
-              also explored <span className="text-[#7A50BE]">Redux</span> and
-              built several small projects to strengthen my understanding of
-              JavaScript concepts and React architecture.
+              <div className="flex gap-6">
+                <ul>
+                  <li className="text-[#E65100]"><i className="fa-brands fa-html5"></i> HTML</li>
+                  <li className="text-[#2E53E5]"><i className="fa-brands fa-css"></i> CSS</li>
+                  <li className="text-[#42BFF8]"><i className="fa-brands fa-css"></i> Tailwind CSS</li>
+                  <li className="text-[#841BFA]"><i className="fa-brands fa-bootstrap"></i> Bootstrap</li>
+                </ul>
+                <ul>
+                  <li className="text-[#F0573A]"><i className="fa-brands fa-git-alt"></i> Git & GitHub</li>
+                  <li className="text-[#F7E02C]"><i className="fa-brands fa-js"></i> JavaScript</li>
+                  <li className="text-[#20D9FF]"><i className="fa-brands fa-react"></i> React</li>
+                  <li className="text-[#20D9FF]"><i className="fa-brands fa-react"></i> React Native</li>
+                </ul>
+              </div>
             </p>
             <p className="mb-2">
               My unique strength lies in combining SEO expertise with frontend
