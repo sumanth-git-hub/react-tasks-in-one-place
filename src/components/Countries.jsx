@@ -41,8 +41,11 @@ export default function Countries() {
           {countryData
             .filter(
               (passCountryDetails) =>
-                passCountryDetails.name.common.toLowerCase().includes(query) ||
-                passCountryDetails.region.toLowerCase().includes(query),
+                {
+                return passCountryDetails.name.common.toLowerCase().includes(query) ||
+                passCountryDetails.region.toLowerCase().includes(query) 
+              }
+                
             )
             .map((passCountryDetails, index) => {
               return (

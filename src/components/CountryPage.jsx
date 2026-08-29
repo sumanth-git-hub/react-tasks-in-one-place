@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "../hooks/useTheme";
 import {
   Link,
@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import FallbackComponent from "./FallbackComponent";
 import ErrorPage from "./ErrorPage";
+import React from "react";
 
 export default function CountryPage() {
   const [darkMode] = useTheme();
@@ -21,6 +22,8 @@ export default function CountryPage() {
   // const fetchData = useLocation()
   const { state } = useLocation();
   // console.log(state)
+    const { query, setQuery } = useOutletContext();
+
 
   function useMainData(findData) {
     setCountryDetails({
@@ -38,29 +41,29 @@ export default function CountryPage() {
         (currency) => currency.name,
       ),
       countryLanguages: Object.values(findData.languages).join(", "),
-      countryBorders: [],
+      // countryBorders: [],
     });
 
-    if (!findData.borders) {
-      findData.borders = [];
-    }
+    // if (!findData.borders) {
+    //   findData.borders = [];
+    // }
 
-    if (findData.borders && findData.borders.length > 0) {
-      Promise.all(
-        findData.borders.map((findBorder) => {
-          return fetch(`https://restcountries.com/v3.1/alpha/${findBorder}`)
-            .then((res) => res.json())
-            .then(([borderCountries]) => borderCountries.name.common);
-        }),
-      ).then((allBordersName) => {
-        // console.log("Namasthe React")
-        setCountryDetails((prevState) => ({
-          ...prevState,
-          countryBorders: allBordersName,
-        }));
-        // console.log(allBordersName)
-      });
-    }
+    // if (findData.borders && findData.borders.length > 0) {
+    //   Promise.all(
+    //     findData.borders.map((findBorder) => {
+    //       return fetch(`https://restcountries.com/v3.1/alpha/${findBorder}`)
+    //         .then((res) => res.json())
+    //         .then(([borderCountries]) => borderCountries.name.common);
+    //     }),
+    //   ).then((allBordersName) => {
+    //     // console.log("Namasthe React")
+    //     setCountryDetails((prevState) => ({
+    //       ...prevState,
+    //       countryBorders: allBordersName,
+    //     }));
+    //     // console.log(allBordersName)
+    //   });
+    // }
   }
 
   useEffect(() => {
@@ -130,6 +133,7 @@ export default function CountryPage() {
       <div className={`w-full min-h-[calc(100vh-100px)] max-w-6xl p-4 mx-auto`}>
         <button
           onClick={() => {
+            setQuery("")
             navigate(-1);
           }}
           className={`cursor-pointer rounded-md px-4 py-1 ${darkMode ? "darkShadow" : "applyShadow"}`}
@@ -184,7 +188,7 @@ export default function CountryPage() {
                 </span>
               </p>
             </div>
-            <div className="mt-10 flex gap-4 items-center flex-wrap">
+            {/* <div className="mt-10 flex gap-4 items-center flex-wrap">
               Border Countries :
               {countryDetails?.countryBorders.length !== 0 ? (
                 countryDetails?.countryBorders.map((setBorder, index) => {
@@ -203,7 +207,7 @@ export default function CountryPage() {
               ) : (
                 <span>No Borders Available</span>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

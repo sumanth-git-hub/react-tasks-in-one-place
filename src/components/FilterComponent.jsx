@@ -20,7 +20,6 @@ export default function FilterComponent({
           placeholder={placeholderContent}
           onChange={(e) => {
             setQuery(e.target.value.toLowerCase());
-            // console.log(query)
           }}
         />
       </div>
