@@ -38,6 +38,8 @@ This project is built using modern frontend technologies to ensure a responsive,
 
 - 🚀 **Performance Optimization** – Applied lazy loading and code splitting to improve load time and overall performance.
 
+- ⚙️ **Config-Driven UI** – Dynamically rendered project listings using JavaScript configuration objects, reducing hard-coded JSX and simplifying project management.
+
 - 🌙 **Dark Mode Support** – Implemented theme switching with data persistence using localStorage and custom hooks.
 
 - 🧭 **Dynamic Breadcrumb Navigation** – Built breadcrumb navigation to enhance user experience and improve SEO.
